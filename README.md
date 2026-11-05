@@ -4,6 +4,14 @@ Project Cars is a native-plugin vehicle mod for **Kenshi x64**. The uploaded
 package contains the FCS mod, runtime DLL, debug symbols, modular vehicle assets,
 workbench and oil assets, audio, configuration, and rendering shaders.
 
+The separate [original source core](remake/README.md) adds a strict catalog
+parser, a standalone vehicle model with atomic part-count exchanges, typed
+fuel accounting and remake-only serialization, plus a VC100 x64
+development-only `ProjectCarsRemake.dll` catalog bootstrap and an explicitly
+opt-in observational lifecycle probe, **disabled by default**.
+**No drivable gameplay is implemented in the remake**, and the legacy runtime
+and active plugin registration are unchanged.
+
 ## Documentation
 
 The [Project Cars wiki](https://github.com/Atlasroar/Project-Cars/wiki) documents
@@ -31,15 +39,17 @@ the package's features and code evidence:
 | `RE_Kenshi.json` | Plugin registration for `ProjectCars.dll` |
 | `ProjectCarsControls.ini` | Vehicle configuration; currently includes first-person FOV |
 | `vehicles.catalog` | Text definitions for frame types, slots, parts, and fuel |
+| `remake` | New original GPL-3.0-only source, native tests, pinned build procedure and inactive development registration example |
 | `assets` | Integration manifests, asset notes, and recorded offline verification |
 | `meshes`, `materials`, `Textures`, `icons` | Vehicle, workbench, and oil visual/collision assets |
 | `shaders` | Editable HLSL track and tread-mark code |
 | `audio\v8` | Prepared engine/vehicle samples and their provenance manifest |
 
-The initial import preserves **all 764 package files**, including `(2)` copies,
-backups, caches, and historical logs. Documentation uses canonical filenames
-without `(2)` unless discussing the preserved archive. Do not enable both copies
-of the mod or load both copies of the DLL.
+The original **764-file package import** remains archived in Git history. The
+current tree removes **382 byte-identical, unreferenced `(2)` copies** and retains
+the canonical package filenames, backups, caches, and historical logs.
+Deliberately distinct filenames are retained even when their contents match.
+Documentation uses canonical filenames unless discussing the archived import.
 
 ## Important limits
 
@@ -48,10 +58,13 @@ Several manifests and notes describe earlier exports; their counts and pending
 features are not authoritative for this later binary. No live Kenshi validation
 was performed while preparing the wiki.
 
-**The native C++ source, headers, build project, SDK setup, and asset-authoring
-tools are not included.** The wiki documents actual shader source, binary-visible
-behavior, manifests, and a clearly labeled non-matching-PDB code map. It does not
-claim to recover a rebuildable C++ project.
+**The original runtime's native C++ source, headers, build project and
+asset-authoring tools are not included.** The wiki documents actual shader
+source, binary-visible behavior, manifests, and a clearly labeled
+non-matching-PDB code map. The new `remake` source is an independently written,
+partial foundation, not recovered legacy source or a rebuild of `ProjectCars.dll`.
+Its DLL/PDB can be built and checked offline; live Kenshi startup and gameplay
+remain unverified.
 
 ## License
 

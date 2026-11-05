@@ -15,9 +15,9 @@ not add an "or any later version" grant.
 ## Missing corresponding source
 
 The imported runtime is a compiled native C++ DLL. This repository does not
-contain its C++ source, headers, build project, or the scripts and instructions
-needed to rebuild it. A PDB is not corresponding source, and the uploaded PDB's
-GUID does not match the current DLL.
+contain that runtime's C++ source, headers, build project, or the scripts and
+instructions needed to rebuild it. A PDB is not corresponding source, and the
+uploaded PDB's GUID does not match the current DLL.
 
 GPLv3 has requirements for conveying object code and making its complete
 Corresponding Source available; see sections 1 and 6 of [LICENSE](LICENSE).
@@ -29,6 +29,20 @@ Before treating the native binary distribution as GPLv3-compliant, the project's
 rights holders must resolve the applicable source-distribution requirements,
 including the source and build materials needed for the distributed build.
 Do not present this repository as a complete, reproducible GPL source release.
+
+## New original source core
+
+The C++ catalog parser, standalone vehicle/fuel/serialization core,
+development-only bootstrap, tests, scripts and documentation under `remake`
+are new original contributions under **GPL-3.0-only**. Their source
+and pinned build instructions are provided, and their separate output is named
+`ProjectCarsRemake.dll`; external SDK/compiler dependencies are not vendored.
+
+This partial reimplementation is not the Corresponding Source for the unrelated
+legacy `ProjectCars.dll`, and does not resolve the legacy binary's source
+distribution requirements. It implements no drivable gameplay and is not a
+deployment-ready mod or an unrestricted binary/asset release. Dependencies and
+any future distribution still require their applicable licenses and notices.
 
 ## Third-party and unidentified material
 

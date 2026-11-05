@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "compiler": {
+    "version": "16.00.30319.01",
+    "mscVer": 1600,
+    "architecture": "x64",
+    "windowsSdkVersion": "7.1",
+    "mediaUrl": "https://download.microsoft.com/download/F/1/0/F10113F5-B750-4969-A255-274341AC6BCE/GRMSDKX_EN_DVD.iso",
+    "mediaSha1": "9203529f5f70d556a60c37f118a95214e6d10b5a",
+    "officialHashPage": "https://www.microsoft.com/en-us/download/details.aspx?id=8442"
+  },
+  "kenshiLib": {
+    "version": "0.5.0",
+    "repository": "https://github.com/BFrizzleFoShizzle/KenshiLib",
+    "sourceCommit": "11cd65d557dea76c6540239acf467e0e06e09cf7",
+    "reKenshiContractCommit": "c8dfbc9621b9263863722852f819c4c0f440475a",
+    "archiveUrl": "https://github.com/BFrizzleFoShizzle/KenshiLib/releases/download/v0.5.0/KenshiLib_v0.5.0.zip",
+    "archiveSha256": "ad4534e92a3a244cf25d724d6a695d42ef8770e4b7a1f91ed53affcac171d0c4",
+    "headerCheckoutLineEndings": "CRLF"
+  },
+  "nativeHeaderDependencies": {
+    "exampleDependenciesRepository": "https://github.com/BFrizzleFoShizzle/KenshiLib_Examples_deps",
+    "exampleDependenciesCommit": "b566d74bf3d74629cc2fb632a97595b8202993f1",
+    "boostVersion": "1.60.0",
+    "usage": "Pinned GameWorld public declarations and their bundled Ogre/Boost headers only; no engine or Boost libraries linked"
+  },
+  "files": [
+    {
+      "path": "windows-sdk-7.1\\Program Files(64)\\Microsoft Visual Studio 10.0\\VC\\bin\\amd64\\cl.exe",
+      "sha256": "dc30732c00642f33be2c7e2ad42c78d5e9b6f5c980555a755ad6462da300f7be"
+    },
+    {
+      "path": "windows-sdk-7.1\\Program Files(64)\\Microsoft Visual Studio 10.0\\VC\\bin\\amd64\\link.exe",
+      "sha256": "40069f4a86381d0552f80993ff4e89d64cf298e5e908fb29d8219f607a467fd3"
+    },
+    {
+      "path": "windows-sdk-7.1\\Program Files(64)\\Microsoft Visual Studio 10.0\\VC\\bin\\amd64\\c1.dll",
+      "sha256": "f1e22542d90ba67748b7933dfa22aef98e67ab126499816bccbe9f2ecbbff7e9"
+    },
+    {
+      "path": "windows-sdk-7.1\\Program Files(64)\\Microsoft Visual Studio 10.0\\VC\\bin\\amd64\\c1xx.dll",
+      "sha256": "d38a07b4f23042876af2c2f77ac65c121ec334bc807de31f4981d9466f74a714"
+    },
+    {
+      "path": "windows-sdk-7.1\\Program Files(64)\\Microsoft Visual Studio 10.0\\VC\\bin\\amd64\\c2.dll",
+      "sha256": "785d4d4150b2ed007b143f077f191bf7d25f709b8d94a49a9f4df3be45c9bed1"
+    },
+    {
+      "path": "windows-sdk-7.1\\Program Files(64)\\Microsoft Visual Studio 10.0\\VC\\bin\\amd64\\cvtres.exe",
+      "sha256": "f7e4d1276a5ba4c15e5fa15aeb69881b4633e4162f1b9599a380d63837c9128e"
+    },
+    {
+      "path": "windows-sdk-7.1\\Program Files(64)\\Microsoft Visual Studio 10.0\\VC\\bin\\amd64\\mspdb100.dll",
+      "sha256": "5b7c63ea65129e9631999cc4b9fca069b40a9dbb3dc923f4fdefcac6a06fd95f"
+    },
+    {
+      "path": "windows-sdk-7.1\\Program Files(64)\\Microsoft Visual Studio 10.0\\VC\\bin\\amd64\\mspdbcore.dll",
+      "sha256": "e6f133bde73affabb231354a6988735c569329b4ee37332f5e20561c0e59110d"
+    },
+    {
+      "path": "windows-sdk-7.1\\Program Files(64)\\Microsoft Visual Studio 10.0\\VC\\bin\\amd64\\mspdbsrv.exe",
+      "sha256": "f3486d841da2764ac97dc0c08cfc4963bec78dd77e8b87d1d90eebc898b52a86"
+    },
+    {
+      "path": "windows-sdk-7.1\\Program Files(64)\\Microsoft Visual Studio 10.0\\VC\\bin\\amd64\\msobj100.dll",
+      "sha256": "be2b71561bdbdef7456ca30586f034b31ee176c887e9ec9a7b9047d3b7cc4044"
+    },
+    {
+      "path": "windows-sdk-7.1\\Program Files(64)\\Microsoft Visual Studio 10.0\\VC\\lib\\amd64\\msvcrt.lib",
+      "sha256": "2c09c61a54c35c599e556fc3165caff546f26dd92ebb99136903d3648d3f7548"
+    },
+    {
+      "path": "windows-sdk-7.1\\Program Files(64)\\Microsoft Visual Studio 10.0\\VC\\lib\\amd64\\msvcprt.lib",
+      "sha256": "a79165354f429ec4eb156eaf3c7e6e598805831d312deaea62792e9d2121a44c"
+    },
+    {
+      "path": "windows-sdk-7.1\\Program Files(64)\\Microsoft Visual Studio 10.0\\VC\\lib\\amd64\\oldnames.lib",
+      "sha256": "13d2048b3690f5945a3c8ec96c0b531e689cab18efb2bb3383ea94705c301516"
+    },
+    {
+      "path": "windows-sdk-7.1\\Program Files\\Microsoft SDKs\\Windows\\v7.1\\Lib\\x64\\kernel32.lib",
+      "sha256": "687ecbee37ab3da3be4e9b87a4988ff9b674557472fab58972dcbbf9f38ba93d"
+    },
+    {
+      "path": "windows-sdk-7.1\\Program Files\\Microsoft SDKs\\Windows\\v7.1\\Lib\\x64\\user32.lib",
+      "sha256": "3fa51344722f7898b821f169d7c7ebbe34710f270b6ac86bcbaae71b29feff10"
+    },
+    {
+      "path": "KenshiLib\\Include\\Debug.h",
+      "sha256": "7a8dc00af3672a9b84a64bc8df1cb389dde6bcf4781956eeddf1cb3b547c7031"
+    },
+    {
+      "path": "KenshiLib\\Include\\Defines.h",
+      "sha256": "f7384954a2aa01f11a40e2fcd918ad2427634deb257f4793f11bec510ae1d26e"
+    },
+    {
+      "path": "KenshiLib\\Libraries\\KenshiLib.lib",
+      "sha256": "fb0a5308d9073ab7538d176c9ec13bf04354cf7daf94e4254e168ea5f695513b"
+    },
+    {
+      "path": "KenshiLib\\Source\\Debug.cpp",
+      "sha256": "b40d51aaf24076895ce7d3abb20c049b9f6266ea6af2b293be67c7ea030b6640"
+    },
+    {
+      "path": "KenshiLib\\Source\\core\\Functions.cpp",
+      "sha256": "47740eea3a5bded4bce8019c897aaf51396c28fc44b35a8b8086dea3903436c6"
+    },
+    {
+      "path": "KenshiLib\\Source\\kenshi\\functions\\GameWorld.inc",
+      "sha256": "f793fa371d5b63a6ffe3b653bcfa9d79d08c59169063a56e2a13101962465709"
+    },
+    {
+      "path": "KenshiLib\\Source\\kenshi\\symbols.asm",
+      "sha256": "3d678604e05b3f4c686570491cafa5472be8ca02a220fbf51c7af13083a42186"
+    },
+    {
+      "path": "runtime-0.5.0\\KenshiLib.dll",
+      "sha256": "5b6240622d06801dc39896e385efb834b8e1fe2fcdf86067d071ae7a04f6c83b"
+    },
+    {
+      "path": "runtime-0.5.0\\KenshiLib.lib",
+      "sha256": "fb0a5308d9073ab7538d176c9ec13bf04354cf7daf94e4254e168ea5f695513b"
+    },
+    {
+      "path": "runtime-0.5.0\\KenshiLib.pdb",
+      "sha256": "459ec65f44a34dbf5a13d7e6c88d995da5462c83a10e5d194cebeb069624dc0e"
+    },
+    {
+      "path": "runtime-0.5.0\\RE_Kenshi\\RVAs\\Steam_1.0.65.br",
+      "sha256": "573c395997ed8d93dd837e27f89a440323089edd1ba93f68291631b448f9cbd0"
+    },
+    {
+      "path": "runtime-0.5.0\\RE_Kenshi\\RVAs\\GOG_1.0.65.br",
+      "sha256": "a2a6394e95312a89e3d3f6842fbfda9c16e7d79749f1ee796fbd6168600bf347"
+    }
+  ],
+  "headerTrees": [
+    {
+      "path": "windows-sdk-7.1\\Program Files\\Microsoft Visual Studio 10.0\\VC\\include",
+      "fileCount": 314,
+      "sha256": "4644803ccb180e9d8c8adf9eb8990fa447fe36e03d3b14c0ba183fc0180ab5b5"
+    },
+    {
+      "path": "windows-sdk-7.1\\Program Files\\Microsoft SDKs\\Windows\\v7.1\\Include",
+      "fileCount": 1885,
+      "sha256": "f7c058ed17f4dbfc599050e215b8931aa8a93bd4ed3537fc13c77a590efd454b"
+    },
+    {
+      "path": "KenshiLib\\Include",
+      "fileCount": 857,
+      "sha256": "3a85f230ff21338595d2c43d7450f3bc1e0985ca33787c0853e133000e1979f3"
+    },
+    {
+      "path": "KenshiLib_Examples_deps\\boost_1_60_0\\boost",
+      "fileCount": 11013,
+      "sha256": "b82ba3f8d9b9dea2a9574e583d2b91807af491285cda9fbcf2c2102db9567ca6"
+    }
+  ],
+  "testRuntime": {
+    "version": "10.00.40219.325",
+    "officialDownloadPage": "https://www.microsoft.com/en-us/download/details.aspx?id=26999",
+    "files": [
+      {
+        "name": "msvcr100.dll",
+        "sha256": "ae3cb6c6afba9a4aa5c85f66023c35338ca579b30326dd02918f9d55259503d5"
+      },
+      {
+        "name": "msvcp100.dll",
+        "sha256": "934d882efd3c0f3f1efbc238ef87708f3879f5bb456d30af62f3368d58b6aa4c"
+      }
+    ]
+  }
+}
