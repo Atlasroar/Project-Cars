@@ -71,6 +71,10 @@ To inspect existing output again without executing the plugin:
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\remake\verify-artifacts.ps1
 ```
 
+The default output directory is resolved relative to the verifier script,
+independent of the current directory. Use `-OutputDirectory` to inspect another
+inactive build directory; an explicitly empty argument is rejected.
+
 The verifier reads the actual PE export/import/RSDS records and MSF 7.0 PDB
 information stream, checking **both GUID and age**. It requires exactly
 `?startPlugin@@YAXXZ`, the VC100 CRT imports and **exactly seven** SDK symbols:
