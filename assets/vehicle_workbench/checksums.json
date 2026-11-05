@@ -1,0 +1,12 @@
+{
+  "meshes/vehicle_workbench/PC_Vehicle_Workbench.mesh": "97bd9cbcb147878d5e266153615588bccfd386a99a29a6a3aef251a8ad1465e2",
+  "meshes/vehicle_workbench/PC_Vehicle_Workbench.xml": "3eb2eb1ff5dafa85ea945bae9cc1dd6cdc4ca118ec8a4189e09ab28948cd8897",
+  "textures/vehicle_workbench/PC_Vehicle_Workbench_D.dds": "0d1d5f25ba340990d54df7b73d0adcbfa995c380b8f0c92a32f3f8c1bfd40d5a",
+  "textures/vehicle_workbench/PC_Vehicle_Workbench_M.dds": "4cfcebcc84bacd0565f6c4f0607a40e66805edd355ebc674d11579dada9d281d",
+  "textures/vehicle_workbench/PC_Vehicle_Workbench_N.dds": "9d62c27036d0d071f8e922cbe6dd32c4bbc98b9b391338400350303f06395b66",
+  "materials/PC_Vehicle_Workbench.material": "9b3ad602a0d434a3cea79c2b63d0d36f966f9b87e053fd5f9b82a01613444359",
+  "assets/vehicle_workbench/FCS_SETUP.txt": "1bbf0538988efda77372c0f2aade70abf9269bc34aad13db0162209f1fd174db",
+  "assets/vehicle_workbench/manifest.json": "c6991fb76c51eaf096a6d203b59a1d674b8df36dc06c4201b8cebdfbf55cda4d",
+  "assets/vehicle_workbench/preview.png": "0138f580a2b86cc5946f77cce1f3970a6978dcb875bfd3a43933e8192d5d0f2a",
+  "assets/vehicle_workbench/verification.json": "29f2a17120749cd86050269da8487b4cb6e8fa7b65ee5bba4aaf19287e63cf5c"
+}

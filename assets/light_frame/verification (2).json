@@ -1,0 +1,17 @@
+{
+  "meshes": 69,
+  "collision_files": 69,
+  "cooked_hulls": 129,
+  "materials": 1,
+  "dds_files": 3,
+  "max_mesh_error": 9.5367431640625e-07,
+  "max_collision_error": 2.4930558453206686e-06,
+  "native_readback": "fresh process, no meshes created in serializer before load",
+  "checksums_verified": true,
+  "source_matches": true,
+  "rear_layout_previews": [
+    "passenger_rear_preview.png",
+    "cargo_rear_preview.png"
+  ],
+  "preview_rendered": true
+}

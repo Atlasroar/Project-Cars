@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ModData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id>3801477897</id>
+  <mod>Project Cars</mod>
+  <title>Project Cars [Rekensi]</title>
+  <tags>
+    <string>Buildings</string>
+    <string>Gameplay</string>
+    <string>Research</string>
+  </tags>
+  <visibility>0</visibility>
+  <lastUpdate>2026-09-16T00:23:57.7145516-07:00</lastUpdate>
+</ModData>

@@ -1,0 +1,270 @@
+{
+  "records": 90,
+  "component_items": 13,
+  "crafts": 14,
+  "visual_parts": 67,
+  "icons": 11,
+  "item_material_types_correct": true,
+  "armor_item_types": 3,
+  "per_mount_armor_items_removed": true,
+  "file_references_checked": 200,
+  "original_ids_preserved": 11,
+  "original_recipes_preserved": true,
+  "mechanic_start_unchanged": true,
+  "frame_starts_empty": true,
+  "changes_to_existing_fields": [
+    {
+      "id": "10-Project Cars.mod",
+      "field": "building height",
+      "before": {
+        "type": "System.Single",
+        "value": "100"
+      },
+      "after": {
+        "type": "System.Single",
+        "value": "22"
+      }
+    },
+    {
+      "id": "10-Project Cars.mod",
+      "field": "Description",
+      "before": {
+        "type": "System.String",
+        "value": "A light vehicle frame."
+      },
+      "after": {
+        "type": "System.String",
+        "value": "An empty Light Vehicle frame. Build with one Light Vehicle Frame Kit, then install a seat, engine, four wheels and a fuel tank through the vehicle modification interface."
+      }
+    },
+    {
+      "id": "10-Project Cars.mod",
+      "field": "distant mesh",
+      "before": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": "./mods/Project Cars/meshes/small frame/Frame_Light.mesh"
+      },
+      "after": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": ""
+      }
+    },
+    {
+      "id": "11-Project Cars.mod",
+      "field": "metalness map",
+      "before": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": ""
+      },
+      "after": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": "./mods/Project Cars/textures/light_frame/PC_Light_Atlas_M.dds"
+      }
+    },
+    {
+      "id": "11-Project Cars.mod",
+      "field": "normal map",
+      "before": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": "./mods/Project Cars/Textures/weathered_steel_N.dds"
+      },
+      "after": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": "./mods/Project Cars/textures/light_frame/PC_Light_Atlas_N.dds"
+      }
+    },
+    {
+      "id": "11-Project Cars.mod",
+      "field": "texture map",
+      "before": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": "./mods/Project Cars/Textures/weathered_steel_D.dds"
+      },
+      "after": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": "./mods/Project Cars/textures/light_frame/PC_Light_Atlas_D.dds"
+      }
+    },
+    {
+      "id": "13-Project Cars.mod",
+      "field": "phs or mesh",
+      "before": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": "./mods/Project Cars/meshes/small frame/Frame_Light.mesh"
+      },
+      "after": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": "./mods/Project Cars/meshes/light_frame/modules/PC_Light_Frame.mesh"
+      }
+    },
+    {
+      "id": "13-Project Cars.mod",
+      "field": "xml collision",
+      "before": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": "./mods/Project Cars/meshes/small frame/Frame_Light.xml"
+      },
+      "after": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": "./mods/Project Cars/meshes/light_frame/modules/PC_Light_Frame.xml"
+      }
+    },
+    {
+      "id": "16-Project Cars.mod",
+      "field": "has inventory",
+      "before": {
+        "type": "System.Boolean",
+        "value": "False"
+      },
+      "after": {
+        "type": "System.Boolean",
+        "value": "True"
+      }
+    },
+    {
+      "id": "17-Project Cars.mod",
+      "field": "tech level",
+      "before": {
+        "type": "System.Int32",
+        "value": "0"
+      },
+      "after": {
+        "type": "System.Int32",
+        "value": "3"
+      }
+    },
+    {
+      "id": "18-Project Cars.mod",
+      "field": "description",
+      "before": {
+        "type": "System.String",
+        "value": "Used to construct buildings.  Heavy and difficult to transport in large quantities."
+      },
+      "after": {
+        "type": "System.String",
+        "value": "A packed Light Vehicle frame. Craft at the Vehicle Workbench, then use one kit to construct a frame through the build menu."
+      }
+    },
+    {
+      "id": "20-Project Cars.mod",
+      "field": "material type",
+      "before": {
+        "type": "System.Int32",
+        "value": "1"
+      },
+      "after": {
+        "type": "System.Int32",
+        "value": "0"
+      }
+    },
+    {
+      "id": "21-Project Cars.mod",
+      "field": "item function",
+      "before": {
+        "type": "System.Int32",
+        "value": "7"
+      },
+      "after": {
+        "type": "System.Int32",
+        "value": "0"
+      }
+    },
+    {
+      "id": "21-Project Cars.mod",
+      "field": "description",
+      "before": {
+        "type": "System.String",
+        "value": "Used to construct buildings.  Heavy and difficult to transport in large quantities."
+      },
+      "after": {
+        "type": "System.String",
+        "value": "A gasoline engine assembly. Its performance belongs to this engine design; it can be installed in different vehicle frames with a compatible engine mount. Requires gasoline and a fuel tank."
+      }
+    },
+    {
+      "id": "21-Project Cars.mod",
+      "field": "trade item",
+      "before": {
+        "type": "System.Boolean",
+        "value": "True"
+      },
+      "after": {
+        "type": "System.Boolean",
+        "value": "False"
+      }
+    },
+    {
+      "id": "21-Project Cars.mod",
+      "field": "inventory footprint height",
+      "before": {
+        "type": "System.Int32",
+        "value": "3"
+      },
+      "after": {
+        "type": "System.Int32",
+        "value": "4"
+      }
+    },
+    {
+      "id": "21-Project Cars.mod",
+      "field": "weight kg",
+      "before": {
+        "type": "System.Single",
+        "value": "2"
+      },
+      "after": {
+        "type": "System.Single",
+        "value": "24"
+      }
+    },
+    {
+      "id": "21-Project Cars.mod",
+      "field": "ground mesh",
+      "before": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": ""
+      },
+      "after": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": "./mods/Project Cars/meshes/light_frame/modules/PC_Light_Engine.mesh"
+      }
+    },
+    {
+      "id": "21-Project Cars.mod",
+      "field": "mesh",
+      "before": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": ".\\data\\items\\meshes\\Item_Building_Materials.mesh"
+      },
+      "after": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": "./mods/Project Cars/meshes/light_frame/modules/PC_Light_Engine.mesh"
+      }
+    },
+    {
+      "id": "21-Project Cars.mod",
+      "field": "icon",
+      "before": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": ".\\data\\items\\icons\\Building Material.png"
+      },
+      "after": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": "./mods/Project Cars/icons/light_frame/PC_Light_Engine.png"
+      }
+    },
+    {
+      "id": "21-Project Cars.mod",
+      "field": "physics file",
+      "before": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": ".\\data\\items\\meshes\\Item_Generic.xml"
+      },
+      "after": {
+        "type": "forgotten_construction_set.GameData+File",
+        "value": "./mods/Project Cars/meshes/light_frame/modules/PC_Light_Engine.xml"
+      }
+    }
+  ],
+  "mod_sha256": "b70257ea11b660dc4639a70ea277b2f163141795ae838b809b074cf476676359"
+}

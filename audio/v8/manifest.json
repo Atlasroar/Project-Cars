@@ -1,0 +1,263 @@
+{
+  "source": "User supplied V8.rar, 2026-09-12",
+  "archive_sha256": "3657110b343d4f5bcb0c45ef92c30fa7048772613680d9e67ca19802b660c74d",
+  "author": null,
+  "license": null,
+  "sample_rate": 44100,
+  "channels": 1,
+  "bits": 16,
+  "engine_item": "21-Project Cars.mod",
+  "processing": "DC removal; bounded gain; 25 ms overlap on loops; 2 ms one-shot edge fades",
+  "files": [
+    {
+      "file": "v8_first.wav",
+      "source_sha256": "a1ec289fd08009c7e488e59f716531e4d15fb48029989e9d94ee9ecaefdc4c2c",
+      "prepared_sha256": "47d6b2451b433da54ac2bdbb25123c5281e6cfd0b812d9c6c434c891bc3aac89",
+      "seconds": 2.871609977324263,
+      "loop": false,
+      "gain": 0.7964959225478607,
+      "peak": 0.7845698416089358,
+      "rms": 0.24000001255439488
+    },
+    {
+      "file": "v8_firstgear_rev_loop1.wav",
+      "source_sha256": "6aa4b41cf4074fde58e835fec7bcb6b5fa89fc863eeec8f20850c8f8bc9cfefb",
+      "prepared_sha256": "463d17635b9955ab2ea20c5451bb50f10dbc11225010a18d66395f017565703d",
+      "seconds": 7.396734693877551,
+      "loop": true,
+      "gain": 0.5408632618828839,
+      "peak": 0.5394146549882504,
+      "rms": 0.17999999520457857
+    },
+    {
+      "file": "v8_fourth_cruise_loop2.wav",
+      "source_sha256": "643943dcfcaf8f4b18b062bbdcdbc8e21fbe92e768ea5851d42580ffca37ec4d",
+      "prepared_sha256": "6f7640814e5b92b7bd1a20641cbd02904950df1d3a309f5615440d7f78084b0b",
+      "seconds": 6.850839002267573,
+      "loop": true,
+      "gain": 0.5928169031153718,
+      "peak": 0.5932187871944334,
+      "rms": 0.18000001208503105
+    },
+    {
+      "file": "v8_idle_loop1.wav",
+      "source_sha256": "52ed4870915aa830fa3d77eed9c85b8f835018e33c3471aee184ece771ed0e63",
+      "prepared_sha256": "d8f8bcd42f19a1053c514d56911bf9a7b727e177c8e9fb4b3416bb0b92db7873",
+      "seconds": 4.291746031746031,
+      "loop": true,
+      "gain": 1.4663892160069498,
+      "peak": 0.641132847071749,
+      "rms": 0.1799999980672125
+    },
+    {
+      "file": "v8_impact_heavy1.wav",
+      "source_sha256": "bb48a891f3e35814caeae20c3d06a83b65f07862fc9a28ad44dff72ed91864a9",
+      "prepared_sha256": "2e91c17963e2878be6968986090ce1adbe80e9b61e18bd648c908cdee489714e",
+      "seconds": 1.653469387755102,
+      "loop": false,
+      "gain": 0.879200115589263,
+      "peak": 0.880001220740379,
+      "rms": 0.23508328283018154
+    },
+    {
+      "file": "v8_impact_heavy2.wav",
+      "source_sha256": "68382b6efe6cf4ed066be8a767d061e0ebeebb5959580c6a8db74e987195d8cd",
+      "prepared_sha256": "5e40da80f364c27f2da87acfc0048891415c030fad60b9e369e0b82a016e460c",
+      "seconds": 1.2146938775510203,
+      "loop": false,
+      "gain": 0.8969789537360789,
+      "peak": 0.879818109683523,
+      "rms": 0.24000003510678275
+    },
+    {
+      "file": "v8_impact_heavy3.wav",
+      "source_sha256": "6a0bcd999e361094f114bc9abbfdb8957f8b8aaa1c1395277d9ef2ffe355bd98",
+      "prepared_sha256": "1ea9860de5f7f903c618aef6e0a4ee1ca8ec5587204822a594c13e8fe1457415",
+      "seconds": 0.9527664399092971,
+      "loop": false,
+      "gain": 0.9118043486713647,
+      "peak": 0.880001220740379,
+      "rms": 0.22467289313398836
+    },
+    {
+      "file": "v8_impact_heavy4.wav",
+      "source_sha256": "eeea5dd21c53f00e45aab4563393a6768dda9785b97de7bb9658a56758e59f55",
+      "prepared_sha256": "4f5e3545498a2ffbfd6a3bf3b4b5f3fa0544e3126833cc0c1d08e8acf749ab56",
+      "seconds": 0.8148526077097505,
+      "loop": false,
+      "gain": 0.771847327321222,
+      "peak": 0.7661061433759575,
+      "rms": 0.2400000243387504
+    },
+    {
+      "file": "v8_impact_medium1.wav",
+      "source_sha256": "7b3f8fad6b5cc5b0973bff0a64b525d64aac090914fe79e68ce537f7ef29cf77",
+      "prepared_sha256": "db187195c906c25073112a3165ed85ed438a1b0705e60ff71c977912a122f2dc",
+      "seconds": 0.9259637188208617,
+      "loop": false,
+      "gain": 0.9985500596360907,
+      "peak": 0.880001220740379,
+      "rms": 0.22198751146735848
+    },
+    {
+      "file": "v8_impact_medium2.wav",
+      "source_sha256": "4361c349bef5debd02384bad392a848d0bacdf0b98940358cb02d173d249ac46",
+      "prepared_sha256": "d8c4e285a62ba097a707844256e4730e04ec46f2220801dfe7c371861da6d48e",
+      "seconds": 0.3453968253968254,
+      "loop": false,
+      "gain": 0.8852578869189,
+      "peak": 0.838068788720359,
+      "rms": 0.24000014114773607
+    },
+    {
+      "file": "v8_impact_medium3.wav",
+      "source_sha256": "7c4299e6fc49e8c55eda7ef4b7915d34879f3e04ce37d34b74c498c3d67268c5",
+      "prepared_sha256": "45f4bf78d115e3e4abd4d3c71ea5f55c19d33ddf8993bb862fbfa8e497e6c128",
+      "seconds": 0.7085034013605442,
+      "loop": false,
+      "gain": 0.9438970936065962,
+      "peak": 0.880001220740379,
+      "rms": 0.2230943828841388
+    },
+    {
+      "file": "v8_impact_medium4.wav",
+      "source_sha256": "d3fa46e6d66e17bb2c794de59fc3dd5b21dc26b42a4508c3bcc144ebb1aea887",
+      "prepared_sha256": "f0d3134e892b179f7622b3c363aec6730c2ed66783a4e2ffbce8aadd333897f6",
+      "seconds": 0.3627891156462585,
+      "loop": false,
+      "gain": 0.8131678138212691,
+      "peak": 0.7406842249824519,
+      "rms": 0.2399999882051669
+    },
+    {
+      "file": "v8_rev_short_loop1.wav",
+      "source_sha256": "a675a9810117839930f6b3dae94b7f1782352c1fdc9130059d3882e4c192f591",
+      "prepared_sha256": "be44b591645b7c1964f9ed2886be0de67ad059681e6545d6dc9c4aecc26be473",
+      "seconds": 4.020816326530612,
+      "loop": true,
+      "gain": 0.900613646981959,
+      "peak": 0.750053407391583,
+      "rms": 0.1799999955696848
+    },
+    {
+      "file": "v8_rollover1.wav",
+      "source_sha256": "dc369db09944e5efdcdf1c8374bed1f1efbc8cd815a156ac98ee6a69bcb114a6",
+      "prepared_sha256": "17166f007a51c81ba4abc979445cadd180a7bddaef5ad11d559b4822a347da25",
+      "seconds": 2.2183446712018142,
+      "loop": false,
+      "gain": 0.8348604551747135,
+      "peak": 0.8093203527939695,
+      "rms": 0.23999997613472282
+    },
+    {
+      "file": "v8_rollover2.wav",
+      "source_sha256": "ca03f9249348ad4c0263e750fd1668e734e79fffe1d6532ff6cac524884294fc",
+      "prepared_sha256": "5d9f7d93ad2070e241152c2a7559965059baa82f60a0a541079c768652ce84fd",
+      "seconds": 1.8227891156462586,
+      "loop": false,
+      "gain": 0.687548257417856,
+      "peak": 0.6881923886837367,
+      "rms": 0.24000000316934078
+    },
+    {
+      "file": "v8_second.wav",
+      "source_sha256": "870cd5975295f08a36a2e0ee905c18dda525828da336f54af738a449f38e5758",
+      "prepared_sha256": "e23d1f54a092928a2f9b431af0cbe5da5eb22eeb49e43d335d11e94b709711a3",
+      "seconds": 3.4536054421768707,
+      "loop": false,
+      "gain": 0.8059910319184512,
+      "peak": 0.8003173924985504,
+      "rms": 0.2400000083113121
+    },
+    {
+      "file": "v8_skid_highfriction.wav",
+      "source_sha256": "4055adc60192402470a7e3bb7b8dd77ee5312f77f4c86dee9cf405688bc7c810",
+      "prepared_sha256": "affa1e0d50e69b9d414b0e5e8b7012effb2f78deaf41e326ae7370e01e51e0c3",
+      "seconds": 1.376371882086168,
+      "loop": true,
+      "gain": 0.8104731883850537,
+      "peak": 0.8358714560380871,
+      "rms": 0.18000000081628417
+    },
+    {
+      "file": "v8_skid_lowfriction.wav",
+      "source_sha256": "bf4e1ed569590cd23997420045ba59958af2a35fe9744258eafe9dd8a373feef",
+      "prepared_sha256": "e7bb8f3eb1b81859867da905724aa70980df4ac41b172108a41a0373184a280c",
+      "seconds": 1.7143990929705215,
+      "loop": true,
+      "gain": 0.930844403994229,
+      "peak": 0.880001220740379,
+      "rms": 0.1529809507597844
+    },
+    {
+      "file": "v8_skid_normalfriction.wav",
+      "source_sha256": "eec94a49deb048ff4d6e17ac255a7456fcef91026e4ebe60fd363b9921d9a106",
+      "prepared_sha256": "93852594b9e502a7cdef101bc6730803f4523baf882cb8a36161b319b3ba9335",
+      "seconds": 1.9358503401360545,
+      "loop": true,
+      "gain": 0.8509379569767336,
+      "peak": 0.8177434614093447,
+      "rms": 0.17999988469559786
+    },
+    {
+      "file": "v8_start_loop1.wav",
+      "source_sha256": "034b94f6d490ce059221f60b40c2fbf33ea76bd2b77fb0d650ae3b79456dbb0a",
+      "prepared_sha256": "f5c5c5e3e042ebe45cc705a167faa4038ddca1fba9d8d37a236f5f9f4b261315",
+      "seconds": 6.151133786848073,
+      "loop": false,
+      "gain": 0.8978270702178842,
+      "peak": 0.880001220740379,
+      "rms": 0.15218878993695484
+    },
+    {
+      "file": "v8_stop1.wav",
+      "source_sha256": "24fb87e664213279e87e727ddd90090c234ee870b50c2752bfe3cb29ef96ef2e",
+      "prepared_sha256": "06428d93ecac78fa10aadff7a7ecf12d3d4665cd4972c6eacd3fc6e69d1eecae",
+      "seconds": 0.9549659863945579,
+      "loop": false,
+      "gain": 1.786973073367616,
+      "peak": 0.880001220740379,
+      "rms": 0.20247510159216092
+    },
+    {
+      "file": "v8_third.wav",
+      "source_sha256": "dc2bbf59906431cfcc5f65d80679be94ac7b129da57805041152a167b39b5174",
+      "prepared_sha256": "6517ca2453b99f3e40c7e5bcf22302d930a1ac6870415e38e6c004cd1bd2fd5d",
+      "seconds": 4.751814058956916,
+      "loop": false,
+      "gain": 0.764263114580085,
+      "peak": 0.7642445142979217,
+      "rms": 0.24000002546317561
+    },
+    {
+      "file": "v8_throttle_off_fast_loop1.wav",
+      "source_sha256": "42cf8e4e5cf218b4c412f52db9ce8a11efd26e3eb08039cb0d8645f1cc7995bb",
+      "prepared_sha256": "4583439e1a6ef89f3f4197d1e5295b83c825304e0f8d3459f79c5efbddbddb9a",
+      "seconds": 10.936145124716553,
+      "loop": true,
+      "gain": 0.964188056898644,
+      "peak": 0.880001220740379,
+      "rms": 0.17563273033406404
+    },
+    {
+      "file": "v8_throttle_off_slow_loop2.wav",
+      "source_sha256": "37916f91418b3d5b596b9b96de08ea6ccef5a3a7f0522abe246426627be03ac7",
+      "prepared_sha256": "144c4adf1c27f509e35ba379f30068b9ae76d16b5334c2997a056227e6dff310",
+      "seconds": 9.335374149659865,
+      "loop": true,
+      "gain": 0.9817462980025751,
+      "peak": 0.880001220740379,
+      "rms": 0.16658654643935142
+    },
+    {
+      "file": "v8_turbo_on_loop1.wav",
+      "source_sha256": "ae09a5f3344dfec40cadb7bf46971a05c8f2f71c379ed6792533cdec47ddea4f",
+      "prepared_sha256": "a24f1124c090299fb704a32460254ea849671ba86f3608209ddd61e526b19e34",
+      "seconds": 7.636122448979592,
+      "loop": true,
+      "gain": 0.5772649165489481,
+      "peak": 0.5771355327005829,
+      "rms": 0.17999998392356728
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+﻿{
+    "baseline_sha256":  "8B8E60EB03E1EBB864D9ABC482816DA1820DBD4337316836E86C773F9BB4FACE",
+    "mod_sha256":  "E32EB6ED504E62F9E53A4E17613189F9A6773510AA047EF48B65193C0E72FB76",
+    "fuels":  [
+                  {
+                      "name":  "Gasoline",
+                      "id":  "144-Project Cars.mod",
+                      "quantity":  2
+                  },
+                  {
+                      "name":  "Diesel",
+                      "id":  "145-Project Cars.mod",
+                      "quantity":  2
+                  }
+              ],
+    "seat_functionality":  "146-Project Cars.mod",
+    "fields_verified":  2501,
+    "records":  93,
+    "native_roundtrip":  true
+}

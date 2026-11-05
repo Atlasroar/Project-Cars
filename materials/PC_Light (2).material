@@ -1,0 +1,12 @@
+material PC_Light_Atlas : StaticObject
+{
+ technique
+ {
+  pass
+  {
+   texture_unit diffuseMap { texture PC_Light_Atlas_D.dds }
+   texture_unit normalMap { texture PC_Light_Atlas_N.dds }
+   texture_unit metalnessMap { texture PC_Light_Atlas_M.dds }
+  }
+ }
+}

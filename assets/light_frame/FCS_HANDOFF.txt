@@ -1,0 +1,46 @@
+PROJECT CARS - LIGHT FRAME ATLAS AND COMPONENT HANDOFF
+
+All paths below are relative to the Project Cars mod folder.
+
+Use ONE shared vehicle material: PC_Light_Atlas
+Material script: materials/PC_Light.material
+Diffuse/gloss: textures/light_frame/PC_Light_Atlas_D.dds
+Normal:       textures/light_frame/PC_Light_Atlas_N.dds
+Metalness:    textures/light_frame/PC_Light_Atlas_M.dds
+The D map's alpha is gloss, not transparency. Three maps, one material.
+All maps are 4096 x 2048 BC3 DDS with mipmaps.
+
+Use the newly remapped meshes together with this atlas. Old meshes have different
+UVs and cannot use the atlas merely by changing the material name.
+Atlas frame: meshes/light_frame/modules/PC_Light_Frame.mesh
+Legacy meshes/small frame/Frame_Light.mesh remains untouched.
+
+Modules: meshes/light_frame/modules/ (14 files)
+Individual armor: meshes/light_frame/armor/parts/ (43 files)
+Armor groups: meshes/light_frame/armor/groups/ (10 files)
+Each .mesh has a corresponding cooked collision .xml beside it.
+Use group meshes OR their individual members, never both together.
+
+Front spikes: meshes/light_frame/modules/PC_Light_Front_Spikes.mesh
+Normal rack:  meshes/light_frame/modules/PC_Light_Front_Rack.mesh
+These share the front_attachment slot. Install one at a time.
+Headlights:   meshes/light_frame/modules/PC_Light_Headlights.mesh
+The pair is one optional component in the independent headlights slot.
+Its brackets, lenses and guards use PC_Light_Atlas too. Beam anchors are recorded
+in the manifest. Actual illumination and on/off controls need runtime integration.
+Cargo_Crate and Fuel_Tank are independent modules. No passenger seat is included.
+
+The existing frame building binding is the exact FCS StringID 10-Project Cars.mod.
+Keep that record ID when adding research requirements and construction costs.
+The intended kit flow is Vehicle Workbench -> Light Frame Kit -> build-menu frame.
+Record exact StringIDs of craftable kit and component items for runtime binding.
+Display names alone do not establish installation behavior.
+
+Placement offsets and submesh mappings: assets/light_frame/manifest.json
+Full notes: assets/light_frame/README.md
+Fresh readback evidence: assets/light_frame/verification.json
+Asset hashes: assets/light_frame/checksums.json
+
+These are prepared assets. Installation, driving, damage and working headlights
+still require runtime integration and an in-game check. Position individual meshes
+using the manifest's pivot_kenshi offsets, not all at the vehicle origin.
