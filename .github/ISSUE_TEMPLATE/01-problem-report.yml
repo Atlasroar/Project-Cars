@@ -1,0 +1,138 @@
+name: Problem report
+description: Report bugs, crashes, installation, compatibility, performance, or native build problems.
+title: "[Problem] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please check [existing issues](https://github.com/Atlasroar/Project-Cars/issues)
+        and the [wiki](https://github.com/Atlasroar/Project-Cars/wiki) for known limitations.
+        The original plugin and source remake are separate runtimes; the remake does not yet provide drivable gameplay.
+
+        Logs, screenshots, and videos can be dragged into the attachment fields below.
+        Uploads to this public repository are public: remove secrets, account details, personal information, and identifying local paths before uploading.
+        GitHub controls [supported formats and size limits](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/attaching-files).
+  - type: dropdown
+    id: report_type
+    attributes:
+      label: Type of problem
+      options:
+        - Bug or regression
+        - Crash or freeze
+        - Performance
+        - Installation or compatibility
+        - Build, SDK, or lifecycle probe
+        - Not sure
+    validations:
+      required: true
+  - type: dropdown
+    id: affected_area
+    attributes:
+      label: Affected areas
+      description: Select all relevant areas, or Not sure.
+      multiple: true
+      options:
+        - Installation or plugin loading
+        - Research, crafting, or frame construction
+        - Workshop, fitting, or inventory
+        - Driving, physics, or pathfinding
+        - Driver, passengers, or prisoners
+        - Controls or camera
+        - Fuel, oil, or production
+        - Wheels or tracks
+        - Graphics, animation, headlights, or audio
+        - Combat, turret, damage, or recovery
+        - Saving, loading, or world reset
+        - Performance or mod conflicts
+        - Native build, SDK, or lifecycle probe
+        - Not sure
+    validations:
+      required: true
+  - type: dropdown
+    id: runtime
+    attributes:
+      label: Runtime or package used
+      options:
+        - Original packaged plugin (ProjectCars.dll)
+        - Source remake / development (ProjectCarsRemake.dll)
+        - FCS, assets, or shaders without a native plugin
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: mod_version
+    attributes:
+      label: Mod version or source commit
+      description: Use the release, DLL banner, or remake commit SHA. Write unknown if unavailable.
+      placeholder: "For example: 0.8.16, a release tag, or a commit SHA"
+    validations:
+      required: true
+  - type: input
+    id: game_version
+    attributes:
+      label: Kenshi version and distribution
+      description: Include Steam or GOG. Leave empty for a build-only issue.
+      placeholder: "For example: Kenshi 1.0.65, Steam"
+  - type: input
+    id: environment
+    attributes:
+      label: Operating system and relevant hardware
+      description: Include GPU for graphics issues; add CPU/RAM for performance issues if useful.
+      placeholder: "For example: Windows 11, GPU model"
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: What happened?
+      description: Describe the problem and include the exact error text, frequency, and impact when known.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Include the frame, part, action, or command involved. Say if the problem is intermittent or you cannot reproduce it.
+      placeholder: |
+        1. Start with ...
+        2. Select or install ...
+        3. Perform ...
+        4. The problem occurs ...
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected behavior
+      description: What should have happened instead?
+  - type: textarea
+    id: setup
+    attributes:
+      label: Loader, SDK, mods, and configuration
+      description: Include only relevant details. Do not enable the experimental lifecycle probe just to file an unrelated report.
+      placeholder: |
+        RE_Kenshi version:
+        KenshiLib version:
+        Actual executable launched (game-root executable or RE_Kenshi compatible copy):
+        Other relevant mods / load order:
+        Remake lifecycle observation (enabled / disabled / not used):
+        Compiler and build command, if this is a development issue:
+  - type: textarea
+    id: save_context
+    attributes:
+      label: Save and world context
+      description: Was this a new or existing save, or after load/reset? Does a disposable new save reproduce it? Do not upload saves or memory dumps unless requested.
+  # Leave render unset on attachment textareas to retain GitHub's upload controls.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and diagnostic files
+      description: Drag and drop relevant .log, .txt, .json, or .zip files here, or paste a short excerpt. Include Project Cars / RE_Kenshi logs, debugger traces, build output, or artifact-report.json when relevant. Redact private information first.
+      placeholder: Attach files here, or explain if no logs are available.
+  - type: textarea
+    id: media
+    attributes:
+      label: Screenshots and videos
+      description: Drag and drop screenshots (PNG, JPEG, GIF) or short videos (MP4, MOV, WEBM), paste an image, or provide an accessible link. Describe what the evidence shows. GitHub applies its own upload size limits.
+      placeholder: Attach screenshots or video here. Include timestamps for important moments in a clip.
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context
+      description: Include workarounds, related issues, or other details that may help.

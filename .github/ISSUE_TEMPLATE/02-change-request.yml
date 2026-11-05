@@ -1,0 +1,83 @@
+name: Feature or documentation request
+description: Suggest features, improvements, documentation fixes, or asset/licensing clarifications.
+title: "[Request] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for proposed changes, documentation corrections, and asset/provenance information.
+        For crashes or other failures, use Problem report instead.
+        Check [existing issues](https://github.com/Atlasroar/Project-Cars/issues)
+        and [feature status](https://github.com/Atlasroar/Project-Cars/wiki/Feature-status) before submitting.
+
+        The source remake is development-only; a request does not imply a feature already works.
+        You can attach logs, screenshots, and videos below. Uploads to this public repository are public:
+        remove secrets, account details, personal information, and identifying local paths first.
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: Type of request
+      options:
+        - New feature
+        - Improvement to an existing feature
+        - Documentation or wiki correction
+        - Build or contributor workflow improvement
+        - Asset, provenance, or licensing clarification
+    validations:
+      required: true
+  - type: input
+    id: affected_area
+    attributes:
+      label: Affected area
+      description: Name the feature, asset, document, or development workflow involved.
+      placeholder: "For example: workshop UI, tracks, save format, installation guide, or audio manifest"
+  - type: dropdown
+    id: runtime
+    attributes:
+      label: Relevant runtime or material
+      options:
+        - Original packaged plugin
+        - Source remake / development
+        - FCS, assets, or shaders
+        - Documentation or licensing
+        - Both runtimes or not sure
+  - type: input
+    id: version
+    attributes:
+      label: Relevant version or source commit
+      description: Optional; include the version, commit, or document URL when it matters.
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Problem or motivation
+      description: Explain the need, confusing behavior, missing information, or incorrect statement.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Proposed change
+      description: Describe the desired result. For documentation or licensing information, link the relevant file and any public supporting source.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and scope
+      description: Mention workarounds, alternatives, affected frame/part IDs, or what should remain unchanged.
+  # Leave render unset on attachment textareas to retain GitHub's upload controls.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Supporting logs or files
+      description: Optional; drag and drop relevant .log, .txt, .json, or .zip files, or paste a short excerpt. Redact private information before attaching.
+  - type: textarea
+    id: media
+    attributes:
+      label: Screenshots, mockups, and videos
+      description: Drag and drop PNG, JPEG, GIF, MP4, MOV, or WEBM files, paste an image, or provide an accessible link. Describe what the evidence illustrates. GitHub controls supported formats and upload limits.
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context
+      description: Include related issues or other information useful for evaluating the request.
