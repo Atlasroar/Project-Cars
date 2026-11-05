@@ -4,6 +4,11 @@ Project Cars is a native-plugin vehicle mod for **Kenshi x64**. The uploaded
 package contains the FCS mod, runtime DLL, debug symbols, modular vehicle assets,
 workbench and oil assets, audio, configuration, and rendering shaders.
 
+The separate [original source foundation](remake/README.md) adds a strict catalog
+parser and a VC100 x64 development-only `ProjectCarsRemake.dll` bootstrap.
+**No drivable gameplay is implemented in the remake**, and the legacy runtime
+and active plugin registration are unchanged.
+
 ## Documentation
 
 The [Project Cars wiki](https://github.com/Atlasroar/Project-Cars/wiki) documents
@@ -31,6 +36,7 @@ the package's features and code evidence:
 | `RE_Kenshi.json` | Plugin registration for `ProjectCars.dll` |
 | `ProjectCarsControls.ini` | Vehicle configuration; currently includes first-person FOV |
 | `vehicles.catalog` | Text definitions for frame types, slots, parts, and fuel |
+| `remake` | New original GPL-3.0-only source, native tests, pinned build procedure and inactive development registration example |
 | `assets` | Integration manifests, asset notes, and recorded offline verification |
 | `meshes`, `materials`, `Textures`, `icons` | Vehicle, workbench, and oil visual/collision assets |
 | `shaders` | Editable HLSL track and tread-mark code |
@@ -49,10 +55,13 @@ Several manifests and notes describe earlier exports; their counts and pending
 features are not authoritative for this later binary. No live Kenshi validation
 was performed while preparing the wiki.
 
-**The native C++ source, headers, build project, SDK setup, and asset-authoring
-tools are not included.** The wiki documents actual shader source, binary-visible
-behavior, manifests, and a clearly labeled non-matching-PDB code map. It does not
-claim to recover a rebuildable C++ project.
+**The original runtime's native C++ source, headers, build project and
+asset-authoring tools are not included.** The wiki documents actual shader
+source, binary-visible behavior, manifests, and a clearly labeled
+non-matching-PDB code map. The new `remake` source is an independently written,
+partial foundation, not recovered legacy source or a rebuild of `ProjectCars.dll`.
+Its DLL/PDB can be built and checked offline; live Kenshi startup and gameplay
+remain unverified.
 
 ## License
 
