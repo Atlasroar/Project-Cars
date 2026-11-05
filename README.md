@@ -29,6 +29,15 @@ the package's features and code evidence:
 - [Development and validation](https://github.com/Atlasroar/Project-Cars/wiki/Development-and-validation)
 - [Licensing](https://github.com/Atlasroar/Project-Cars/wiki/Licensing)
 
+## Reporting issues
+
+Use the [issue forms](https://github.com/Atlasroar/Project-Cars/issues/new/choose)
+for problems, compatibility/build help, feature requests, documentation fixes,
+or asset/licensing clarifications. Both forms accept logs, screenshots, and
+videos in their attachment fields; GitHub controls file types and size limits.
+Redact private information before uploading. Blank issues remain available
+when neither form fits.
+
 ## Package layout
 
 | Path | Purpose |
