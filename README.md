@@ -4,8 +4,10 @@ Project Cars is a native-plugin vehicle mod for **Kenshi x64**. The uploaded
 package contains the FCS mod, runtime DLL, debug symbols, modular vehicle assets,
 workbench and oil assets, audio, configuration, and rendering shaders.
 
-The separate [original source foundation](remake/README.md) adds a strict catalog
-parser and a VC100 x64 development-only `ProjectCarsRemake.dll` bootstrap.
+The separate [original source core](remake/README.md) adds a strict catalog
+parser, a standalone vehicle model with atomic part-count exchanges, typed
+fuel accounting and remake-only serialization, plus a VC100 x64
+development-only `ProjectCarsRemake.dll` catalog bootstrap.
 **No drivable gameplay is implemented in the remake**, and the legacy runtime
 and active plugin registration are unchanged.
 

@@ -1,17 +1,22 @@
-# Original source foundation
+# Original source core
 
 **Development only: no drivable gameplay yet.** This is new, original
 GPL-3.0-only C++ source, not recovery of the unavailable source for the legacy
-`ProjectCars.dll` 0.8.16. It implements a catalog model/parser and an RE_Kenshi
-bootstrap that loads and validates a DLL-local `vehicles.catalog`. It does not
-replace the legacy DLL, repair its missing Corresponding Source, or constitute
-a deployment-ready mod.
+`ProjectCars.dll` 0.8.16. It implements a catalog model/parser, a standalone
+vehicle domain core and an RE_Kenshi bootstrap that loads and validates a
+DLL-local `vehicles.catalog`. The domain core has mechanical readiness, atomic
+part-count exchanges, typed litres fuel accounting and remake-only vehicle
+serialization. The bootstrap still only validates the catalog: unused domain
+functions are not wired into startup or linked into the development DLL. It
+does not replace the legacy DLL, repair its missing Corresponding Source, or
+constitute a deployment-ready mod.
 
 There are no gameplay hooks, `KenshiLib::Init` calls, FCS lookups, vehicle world
-objects, fitting UI, driving, save migration or playable features here. Scout
-and hauler are catalog declarations, not verified native buildings or finished
-deployment assets. The parser preserves the existing `10-Project Cars.mod`
-binding as an exact string; it does not establish that a live FCS object exists.
+objects, live inventory/save access, fitting UI, driving, save migration or
+playable features here. Scout and hauler are catalog declarations, not verified
+native buildings or finished deployment assets. The parser preserves the
+existing `10-Project Cars.mod` binding as an exact string; it does not establish
+that a live FCS object exists.
 
 ## Build and check
 
@@ -30,9 +35,9 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\remake\build.ps1 -Tool
 ```
 
 The script verifies dependency hashes, invokes the actual VC100 x64 `cl.exe`
-and `link.exe` directly, runs the standalone catalog tests against both the
-canonical and staged catalog, and inspects the DLL/EXE and their PDBs. It uses
-`/EHsc /MD /O2 /GL /Zi /W4 /WX`, then `/LTCG /DEBUG /INCREMENTAL:NO /OPT:REF
+and `link.exe` directly, runs the standalone catalog and vehicle tests against
+both the canonical and staged catalog, and inspects the DLL/EXE and their PDBs.
+It uses `/EHsc /MD /O2 /GL /Zi /W4 /WX`, then `/LTCG /DEBUG /INCREMENTAL:NO /OPT:REF
 /OPT:ICF`. Source compilation rejects a compiler other than `_MSC_VER == 1600`,
 a non-x64 target, and a non-Release/non-DLL CRT. Errors fail the build rather
 than selecting a different compiler, SDK, catalog or legacy binary.
@@ -47,7 +52,7 @@ All generated files stay under the ignored `out\remake` directory:
 | Output | Purpose |
 | --- | --- |
 | `ProjectCarsRemake.dll`, `ProjectCarsRemake.pdb` | Development-only x64 plugin and its matching debug symbols |
-| `CatalogTests.exe`, `CatalogTests.pdb` | Standalone native core tests; no SDK linkage or host loading |
+| `CatalogTests.exe`, `CatalogTests.pdb` | Combined catalog/vehicle native tests; no SDK linkage or host loading |
 | `vehicles.catalog` | Byte-identical copy of the canonical catalog beside the DLL |
 | `RE_Kenshi.json.example` | Inactive opt-in development registration example |
 | `artifact-report.json` | Actual PE architecture, exports/imports, paired GUID+age and SHA256 identities |
@@ -201,9 +206,145 @@ but bootstrap configuration requires at least one part and frame.
 
 Failures identify the source, physical line, field/reference and original line
 context. Control bytes are escaped in human-readable diagnostics. Parsing
-returns a complete model only after all checks succeed. The native suite also
-exercises malformed fields, duplicates, unresolved forward references,
-numeric boundaries, locale changes, BOM/quotes/comments and I/O errors.
+returns a complete model only after all checks succeed. The native suite also exercises malformed fields, duplicates, unresolved
+forward references, numeric boundaries, locale changes, BOM/quotes/comments
+and I/O errors. Shared text helpers retain these diagnostics for both formats.
+`ValidateCatalog` applies the same definition/reference rules to programmatic
+catalogs, since the public catalog value can be edited after parsing.
+
+## Standalone vehicle domain
+
+`src\vehicle.h` exposes value-state APIs, not native Kenshi objects:
+
+| API | Contract |
+| --- | --- |
+| `Vehicle(catalog, frameId)` | Validates and owns a deep catalog snapshot; starts as a bare frame with no installed parts or fuel |
+| `Installed`, `FrameId`, `FuelState`, `TankCapacityLitres` | Read-only IDs and values; capacity comes only from the installed `tank` role |
+| `Readiness` | Mechanical/configuration completeness with explicit missing and unsupported role-slot lists |
+| `PartStock(catalog, capacity, counts)` | Explicit standalone stock, with unsigned 32-bit per-part counts and total part-count capacity |
+| `Fit`, `Remove`, `Replace` | All-or-nothing exchanges of one part per slot; failures throw a reason-coded `VehicleError` |
+| `Refuel`, `Drain`, `Consume` | Explicit typed litres accounting; return actual added/removed/consumed quantities |
+
+No pointers into a caller's catalog are retained. Mutating or destroying that
+catalog cannot invalidate an existing vehicle. Copies are independent, and
+assignment stages a complete copy before swapping. Invalid programmatic
+catalogs are rejected, rather than relying on callers to have parsed them.
+
+**Bounded readiness profile.** All three canonical frames declare
+`seat_driver` (seat), `engine` (engine), `tank` (tank), and `wheel_fl`,
+`wheel_fr`, `wheel_rl`, `wheel_rr` (wheels). These seven exact slots must be
+occupied, and every catalog-compatible part for each role must have that
+role's kind. Missing or mixed-kind role declarations report unsupported
+slots, never readiness. Optional passenger-seat, armor, headlights and cargo
+slots do not gate this core's readiness. Other catalog-declared fittings can
+be stored, but no extra role, seat layout, track/wheel conflict, attachment
+mapping or legacy 0.8.16 rule is inferred.
+
+A ready configuration can have an empty tank and no native building binding.
+An installed driver seat is not a boarded driver. Readiness says nothing
+about live FCS records, actors, physics, movement, collision or playability.
+
+**Atomic stock exchanges.** Compatibility is exactly the selected frame's
+catalog slot allowlist. `Fit` requires an empty slot, `Remove`/`Replace` require
+an occupied slot, and replacing with the same part is an explicit no-op error.
+Fitting consumes one count; removal returns one; replacement consumes one
+new part and returns one old part. Zero-count entries are normalized away.
+Unknown references, insufficient stock, final capacity failure and per-part
+or total count overflow leave both vehicle and stock unchanged. A replacement
+is validated as a complete exchange: a full stock can accept the old part
+when consuming the new part frees the required unit of capacity.
+
+This is a single-threaded **count/capacity test model**, not Kenshi inventory
+grid, stack, allocation, reservation or ownership semantics. Stock is neither
+serialized with vehicles nor transferred into the game. Future native adapters
+must perform authoritative live transfers; these tests are not proof those
+transfers work.
+
+**Fuel rules.** Empty fuel is exactly `none 0`; a nonempty tank carries either
+gasoline or diesel. Tanks themselves retain catalog fuel `none`, meaning no
+fixed gasoline/diesel restriction, not a third usable fuel. The first nonzero
+refuel explicitly selects the stored type. Refueling requires the installed
+`tank` role, must match any installed `engine` and existing nonempty fuel, and
+cannot exceed tank capacity. A tank may be refueled while its engine is absent.
+Engine removal preserves tank contents; fitting/replacing an incompatible
+engine, removing a fueled tank, or downsizing below stored volume is rejected
+before either stock or vehicle changes. `Drain(litres)` is the only explicit
+non-consumption fuel removal; it reports the removed type/quantity and cannot
+remove more than exists. Draining/exhausting the tank resets it to `none 0`.
+There is no implicit mixing, conversion, clamping or excess-fuel discard.
+
+`Consume(simulationSeconds)` requires an installed engine and uses its
+`burnLitresPerSimSecond`, not wall-clock time or an invented can-item mechanic.
+It reports actual `consumedLitres`, bounded `usableSimSeconds` and `exhausted`.
+Zero time consumes nothing; an empty tank yields zero usable time; exhaustion
+uses only the remaining fuel and its usable time. Consumption does not require
+mechanical readiness or enable motion; a future driving adapter must apply its
+own host/driver/readiness gates before requesting a step.
+
+Every quantity/time input must be finite and nonnegative. Volumes use
+double-precision litres, with reported quantities reflecting actual stored
+volume changes. Positive operations too small to change the stored value,
+underflowed burn amounts, or unrepresentable positive exhaustion time fail
+explicitly without mutation. Large finite steps can exhaust normally even
+when the unconstrained time-times-burn product would overflow.
+
+## Remake-only vehicle serialization
+
+`src\vehicle_io.h` provides `WriteVehicle(output, vehicle, destination)` and
+`ParseVehicle(input, source, catalog)` on **caller-owned streams**. No game
+save path, filesystem installation or native save-format detection is chosen.
+The unmistakable namespace and independent version are:
+
+```text
+projectcars-remake-vehicle 1
+frame small_frame
+installed engine small_gas_engine
+installed tank tank_40
+fuel gasoline binary64:4029000000000000
+end
+```
+
+The writer emits the header, exact frame ID, installed slot/part IDs sorted by
+ASCII slot ID, one fuel record and an end marker. Fuel volume is an exact
+IEEE-754 binary64 bit pattern: `binary64:` plus 16 lowercase hexadecimal
+digits, most significant digit first. The example holds **12.5 litres**; empty
+fuel is `none binary64:0000000000000000`. This is a scalar volume encoding,
+not a pointer or native identity. The real VC100 CRT loses a bit on some
+17-digit decimal round trips, so saves deliberately do not use its decimal
+conversion. All finite nonnegative doubles, including subnormals, survive
+exactly; NaN, infinity, negative values and negative zero are rejected.
+
+Output uses no BOM and LF text, independent of the destination stream's
+locale/formatting. Use binary-mode file streams if exact LF bytes are needed
+on Windows. Capacity, burn rate, stock, native pointers/handles and FCS objects
+are not persisted; definitions are validated against the supplied catalog on load.
+
+The first directive must be the exact version-1 header. Frame and fuel are
+mandatory and unique, installed slot IDs cannot repeat, and `end` is mandatory.
+Records after the header may be reordered before `end`; only blank/comment
+lines may follow it. Catalog-style ASCII whitespace, CRLF, a first-line UTF-8
+BOM and `#` comments are accepted, but quoted fields are not. Shared helpers
+enforce identifier/token rules and escaped diagnostics without changing IDs.
+The catalog's separate decimal numeric syntax is unchanged.
+Unknown directives, versions, IDs, duplicate fields, incompatible parts,
+noncanonical fuel types/empty state and invalid tank/engine fuel state fail
+with source, physical line and original context. Load constructs and validates
+the complete state before returning it, so failed assignment preserves an
+existing vehicle and never changes inventory.
+
+Read, write and flush failures are explicit `VehicleSaveError`s. The writer
+stages the serialization before touching the stream, but a failing output
+stream may already contain partial bytes; any atomic file replacement belongs
+to the caller's future persistence adapter. This format has **no legacy native
+save compatibility**, migration or live Kenshi save integration.
+
+The existing `CatalogTests.exe` runner covers every canonical catalog field,
+bare/ready/incomplete/unsupported roles, ownership/copies, stock quantities,
+full-capacity replacement, rollback and count overflow, fuel preservation,
+fuel/time/precision boundaries, deterministic output, exact numeric round
+trips, invalid saved-state rollback and read/write/flush failures. Artificial
+catalogs stress validation/numeric limits only; they are not additions to the
+canonical catalog or assertions about legacy gameplay.
 
 ## Host boundary and development registration
 
@@ -234,3 +375,11 @@ arbitrary-build support. **Live game startup and gameplay remain unverified.**
 Legacy native saves are undocumented, and the V8 audio rights remain
 unresolved; this foundation promises neither save compatibility nor asset
 redistribution clearance. See [LICENSING.md](../LICENSING.md).
+
+## Remaining native work
+
+This stops at source-remake milestone 2, the standalone vehicle domain.
+Subsequent separate units are native lifecycle/typed handles/reset,
+workshop/live inventory/attachments, driving/fuel integration, then gated
+playable deployment. Passengers, tracks, oil and combat remain unimplemented.
+No live-game startup or gameplay gate has passed.

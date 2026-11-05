@@ -30,10 +30,11 @@ rights holders must resolve the applicable source-distribution requirements,
 including the source and build materials needed for the distributed build.
 Do not present this repository as a complete, reproducible GPL source release.
 
-## New original source foundation
+## New original source core
 
-The C++ model/parser, development-only bootstrap, tests, scripts and documentation
-under `remake` are new original contributions under **GPL-3.0-only**. Their source
+The C++ catalog parser, standalone vehicle/fuel/serialization core,
+development-only bootstrap, tests, scripts and documentation under `remake`
+are new original contributions under **GPL-3.0-only**. Their source
 and pinned build instructions are provided, and their separate output is named
 `ProjectCarsRemake.dll`; external SDK/compiler dependencies are not vendored.
 

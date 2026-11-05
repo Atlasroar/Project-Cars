@@ -8,10 +8,7 @@
 #error ProjectCarsRemake requires the Release DLL runtime (/MD).
 #endif
 
-#include <istream>
-#include <stdexcept>
-#include <string>
-#include <vector>
+#include "text.h"
 
 namespace projectcars
 {
@@ -76,23 +73,16 @@ namespace projectcars
 
         const Part* FindPart(const std::string& id) const;
         const Frame* FindFrame(const std::string& id) const;
+        const Slot* FindSlot(const std::string& frameId, const std::string& id) const;
     };
 
-    class CatalogError : public std::runtime_error
+    class CatalogError : public text::Error
     {
     public:
         CatalogError(const std::string& source, size_t line,
                      const std::string& context, const std::string& detail);
-
-        const std::string& Source() const;
-        size_t Line() const;
-        const std::string& Context() const;
-
-    private:
-        std::string source_;
-        size_t line_;
-        std::string context_;
     };
 
     Catalog ParseCatalog(std::istream& input, const std::string& source);
+    void ValidateCatalog(const Catalog& catalog);
 }

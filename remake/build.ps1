@@ -97,21 +97,29 @@ try {
                '/Zc:wchar_t', '/Zc:forScope', '/DWIN32', '/D_WIN64', '/DNDEBUG',
                '/DNOMINMAX', '/DWIN32_LEAN_AND_MEAN', '/D_WIN32_WINNT=0x0601',
                "/I$PSScriptRoot\src")
-    Invoke-Native $cl ($flags + @('/c', "$PSScriptRoot\src\catalog.cpp",
-                                  "/Fo$obj\catalog.obj", "/Fd$obj\catalog.compiler.pdb"))
-    Invoke-Native $cl ($flags + @('/c', "$PSScriptRoot\tests\catalog_tests.cpp",
-                                  "/Fo$obj\catalog_tests.obj", "/Fd$obj\tests.compiler.pdb"))
+    $testObjects = @()
+    foreach ($name in @('text', 'catalog', 'vehicle', 'vehicle_io')) {
+        Invoke-Native $cl ($flags + @('/c', "$PSScriptRoot\src\$name.cpp",
+                                      "/Fo$obj\$name.obj", "/Fd$obj\$name.compiler.pdb"))
+        $testObjects += "$obj\$name.obj"
+    }
+    foreach ($name in @('catalog_tests', 'vehicle_tests')) {
+        Invoke-Native $cl ($flags + @('/c', "$PSScriptRoot\tests\$name.cpp",
+                                      "/Fo$obj\$name.obj", "/Fd$obj\$name.compiler.pdb"))
+        $testObjects += "$obj\$name.obj"
+    }
     $linkFlags = @('/nologo', '/MACHINE:X64', '/LTCG', '/DEBUG', '/INCREMENTAL:NO',
                    '/OPT:REF', '/OPT:ICF', '/PDBALTPATH:%_PDB%')
     Invoke-Native $link ($linkFlags + @("/OUT:$out\CatalogTests.exe",
-        "/PDB:$out\CatalogTests.pdb", "$obj\catalog.obj", "$obj\catalog_tests.obj", 'kernel32.lib'))
+        "/PDB:$out\CatalogTests.pdb") + $testObjects + @('kernel32.lib'))
     Invoke-Native "$out\CatalogTests.exe" @("$repo\vehicles.catalog")
 
     Invoke-Native $cl ($flags + @("/I$ToolchainRoot\KenshiLib\Include", '/c',
         "$PSScriptRoot\src\plugin.cpp", "/Fo$obj\plugin.obj", "/Fd$obj\plugin.compiler.pdb"))
     Invoke-Native $link ($linkFlags + @('/DLL', "/OUT:$out\ProjectCarsRemake.dll",
         "/PDB:$out\ProjectCarsRemake.pdb", "/IMPLIB:$out\ProjectCarsRemake.lib",
-        "$obj\catalog.obj", "$obj\plugin.obj", "$ToolchainRoot\KenshiLib\Libraries\KenshiLib.lib",
+        "$obj\text.obj", "$obj\catalog.obj", "$obj\plugin.obj",
+        "$ToolchainRoot\KenshiLib\Libraries\KenshiLib.lib",
         'kernel32.lib', 'user32.lib'))
 
     Copy-Item -LiteralPath "$repo\vehicles.catalog" -Destination "$out\vehicles.catalog" -Force
@@ -119,7 +127,7 @@ try {
     Invoke-Native "$out\CatalogTests.exe" @("$out\vehicles.catalog")
     $report = & "$PSScriptRoot\verify-artifacts.ps1" -OutputDirectory $out
     $report | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $reportPath -Encoding UTF8
-    Write-Host "Foundation built and checked: $out"
+    Write-Host "Standalone source core built and checked: $out"
     Write-Host 'Development only. Live Kenshi startup and gameplay are NOT verified.'
 } finally {
     foreach ($name in $names) {

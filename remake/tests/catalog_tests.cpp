@@ -8,6 +8,8 @@
 #include <locale>
 #include <sstream>
 
+void RunVehicleTests(const char* catalogPath);
+
 namespace
 {
     unsigned int assertions = 0;
@@ -424,6 +426,7 @@ int main(int argc, char** argv)
         ReadFailures();
         std::cout << "PASS: " << assertions << " assertions; " << rejectedInputs
                   << " malformed catalogs rejected; VC100 x64 Release\n";
+        RunVehicleTests(argv[1]);
         return 0;
     }
     catch (const std::exception& error)
