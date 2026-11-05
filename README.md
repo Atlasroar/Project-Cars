@@ -36,10 +36,11 @@ the package's features and code evidence:
 | `shaders` | Editable HLSL track and tread-mark code |
 | `audio\v8` | Prepared engine/vehicle samples and their provenance manifest |
 
-The initial import preserves **all 764 package files**, including `(2)` copies,
-backups, caches, and historical logs. Documentation uses canonical filenames
-without `(2)` unless discussing the preserved archive. Do not enable both copies
-of the mod or load both copies of the DLL.
+The original **764-file package import** remains archived in Git history. The
+current tree removes **382 byte-identical, unreferenced `(2)` copies** and retains
+the canonical package filenames, backups, caches, and historical logs.
+Deliberately distinct filenames are retained even when their contents match.
+Documentation uses canonical filenames unless discussing the archived import.
 
 ## Important limits
 
