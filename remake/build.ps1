@@ -76,6 +76,11 @@ $link = Join-Path $vc 'bin\amd64\link.exe'
 $out = Join-Path $repo 'out\remake'
 $obj = Join-Path $out 'obj'
 New-Item -ItemType Directory -Path $obj -Force | Out-Null
+foreach ($activeName in @('RE_Kenshi.json', 'ProjectCarsRemake.lifecycle.cfg')) {
+    if (Test-Path -LiteralPath (Join-Path $out $activeName)) {
+        throw "Active configuration is not allowed in inactive developer output: $activeName."
+    }
+}
 $reportPath = Join-Path $out 'artifact-report.json'
 if (Test-Path -LiteralPath $reportPath) {
     Remove-Item -LiteralPath $reportPath
@@ -95,15 +100,16 @@ try {
     }
     $flags = @('/nologo', '/EHsc', '/MD', '/O2', '/GL', '/Zi', '/W4', '/WX', '/Gd',
                '/Zc:wchar_t', '/Zc:forScope', '/DWIN32', '/D_WIN64', '/DNDEBUG',
+               '/DUNICODE', '/D_UNICODE',
                '/DNOMINMAX', '/DWIN32_LEAN_AND_MEAN', '/D_WIN32_WINNT=0x0601',
                "/I$PSScriptRoot\src")
     $testObjects = @()
-    foreach ($name in @('text', 'catalog', 'vehicle', 'vehicle_io')) {
+    foreach ($name in @('text', 'catalog', 'vehicle', 'vehicle_io', 'lifecycle')) {
         Invoke-Native $cl ($flags + @('/c', "$PSScriptRoot\src\$name.cpp",
                                       "/Fo$obj\$name.obj", "/Fd$obj\$name.compiler.pdb"))
         $testObjects += "$obj\$name.obj"
     }
-    foreach ($name in @('catalog_tests', 'vehicle_tests')) {
+    foreach ($name in @('catalog_tests', 'vehicle_tests', 'lifecycle_tests')) {
         Invoke-Native $cl ($flags + @('/c', "$PSScriptRoot\tests\$name.cpp",
                                       "/Fo$obj\$name.obj", "/Fd$obj\$name.compiler.pdb"))
         $testObjects += "$obj\$name.obj"
@@ -112,13 +118,18 @@ try {
                    '/OPT:REF', '/OPT:ICF', '/PDBALTPATH:%_PDB%')
     Invoke-Native $link ($linkFlags + @("/OUT:$out\CatalogTests.exe",
         "/PDB:$out\CatalogTests.pdb") + $testObjects + @('kernel32.lib'))
+    Copy-Item -LiteralPath "$PSScriptRoot\development\ProjectCarsRemake.lifecycle.cfg.example" -Destination $out -Force
     Invoke-Native "$out\CatalogTests.exe" @("$repo\vehicles.catalog")
 
-    Invoke-Native $cl ($flags + @("/I$ToolchainRoot\KenshiLib\Include", '/c',
-        "$PSScriptRoot\src\plugin.cpp", "/Fo$obj\plugin.obj", "/Fd$obj\plugin.compiler.pdb"))
+    foreach ($name in @('plugin', 'native_lifecycle')) {
+        Invoke-Native $cl ($flags + @("/I$ToolchainRoot\KenshiLib\Include",
+            "/I$ToolchainRoot\KenshiLib_Examples_deps\boost_1_60_0", '/c',
+            "$PSScriptRoot\src\$name.cpp", "/Fo$obj\$name.obj", "/Fd$obj\$name.compiler.pdb"))
+    }
     Invoke-Native $link ($linkFlags + @('/DLL', "/OUT:$out\ProjectCarsRemake.dll",
         "/PDB:$out\ProjectCarsRemake.pdb", "/IMPLIB:$out\ProjectCarsRemake.lib",
-        "$obj\text.obj", "$obj\catalog.obj", "$obj\plugin.obj",
+        "$obj\text.obj", "$obj\catalog.obj", "$obj\lifecycle.obj",
+        "$obj\plugin.obj", "$obj\native_lifecycle.obj",
         "$ToolchainRoot\KenshiLib\Libraries\KenshiLib.lib",
         'kernel32.lib', 'user32.lib'))
 

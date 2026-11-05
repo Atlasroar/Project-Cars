@@ -226,6 +226,7 @@ function Verify-Pair([string]$ImageName, [bool]$Dll) {
     }
     $allowed = @('KERNEL32.dll', 'MSVCR100.dll', 'MSVCP100.dll')
     $sdkLoggingImports = @()
+    $sdkLifecycleImports = @()
     if ($Dll) {
         $allowed += @('KenshiLib.dll', 'USER32.dll')
         if ($pe.ExportFunctionCount -ne 1 -or $pe.Exports.Count -ne 1 -or
@@ -233,11 +234,26 @@ function Verify-Pair([string]$ImageName, [bool]$Dll) {
             throw 'Expected exactly the global C++ export ?startPlugin@@YAXXZ.'
         }
         if (-not $pe.Imports.ContainsKey('KenshiLib.dll')) { throw 'Missing actual KenshiLib import.' }
-        $sdkSymbols = @($pe.Imports['KenshiLib.dll'] | Sort-Object)
-        $sdkLoggingImports = @($pe.Imports['KenshiLib.dll'])
-        if ($sdkSymbols.Count -ne 2 -or $sdkSymbols[0] -cne '?DebugLog@@YAXPEBD@Z' -or
-            $sdkSymbols[1] -cne '?ErrorLog@@YAXPEBD@Z') {
-            throw 'Expected only the pinned SDK public char-pointer logging imports; no Init/hooks.'
+        $sdkLoggingImports = @('?DebugLog@@YAXPEBD@Z', '?ErrorLog@@YAXPEBD@Z')
+        $sdkLifecycleImports = @(
+            '?GetRealAddress@KenshiLib@@YA_JPEAX@Z',
+            '?AddHook@KenshiLib@@YA?AW4HookStatus@1@PEAX0PEAPEAX@Z',
+            '?_NV_mainLoop_GPUSensitiveStuff@GameWorld@@QEAAXM@Z',
+            '?resetGame@GameWorld@@QEAAXXZ',
+            '?_clearAndDestroyGameWorldStuff@GameWorld@@QEAAXXZ'
+        )
+        $expectedSdk = @($sdkLoggingImports + $sdkLifecycleImports)
+        $sdkSymbols = @($pe.Imports['KenshiLib.dll'])
+        if ($sdkSymbols.Count -ne $expectedSdk.Count) {
+            throw 'Expected exactly seven pinned public SDK logging/lifecycle imports.'
+        }
+        foreach ($symbol in $sdkSymbols) {
+            if ($symbol -cnotin $expectedSdk) {
+                throw "Unexpected SDK import: $symbol; no Init, queued hooks, version override or engine APIs."
+            }
+        }
+        foreach ($symbol in $expectedSdk) {
+            if ($symbol -cnotin $sdkSymbols) { throw "Missing required SDK import: $symbol." }
         }
     } elseif ($pe.ExportFunctionCount -ne 0) {
         throw 'Unexpected test executable export.'
@@ -254,6 +270,7 @@ function Verify-Pair([string]$ImageName, [bool]$Dll) {
         exports = @($pe.Exports)
         imports = $actualImports
         sdkLoggingImports = $sdkLoggingImports
+        sdkLifecycleImports = $sdkLifecycleImports
         pdb = $pdbName
         pdbGuid = $pdb.Guid
         pdbAge = $pdb.Age
@@ -265,12 +282,24 @@ function Verify-Pair([string]$ImageName, [bool]$Dll) {
 }
 
 $OutputDirectory = [IO.Path]::GetFullPath($OutputDirectory)
+foreach ($activeName in @('RE_Kenshi.json', 'ProjectCarsRemake.lifecycle.cfg')) {
+    if (Test-Path -LiteralPath (Join-Path $OutputDirectory $activeName)) {
+        throw "Developer output must remain inactive: unexpected $activeName."
+    }
+}
 $plugin = Verify-Pair 'ProjectCarsRemake.dll' $true
 $tests = Verify-Pair 'CatalogTests.exe' $false
 $repo = Split-Path -Parent $PSScriptRoot
 $catalogHash = (Get-FileHash -LiteralPath "$repo\vehicles.catalog" -Algorithm SHA256).Hash.ToLowerInvariant()
 $stagedHash = (Get-FileHash -LiteralPath "$OutputDirectory\vehicles.catalog" -Algorithm SHA256).Hash.ToLowerInvariant()
 if ($catalogHash -ne $stagedHash) { throw 'Staged catalog does not match the canonical catalog.' }
+$exampleHashes = @{}
+foreach ($name in @('RE_Kenshi.json.example', 'ProjectCarsRemake.lifecycle.cfg.example')) {
+    $sourceHash = (Get-FileHash -LiteralPath "$PSScriptRoot\development\$name" -Algorithm SHA256).Hash.ToLowerInvariant()
+    $outputHash = (Get-FileHash -LiteralPath "$OutputDirectory\$name" -Algorithm SHA256).Hash.ToLowerInvariant()
+    if ($sourceHash -ne $outputHash) { throw "Staged inactive example differs from source: $name." }
+    $exampleHashes[$name] = $outputHash
+}
 return [pscustomobject]@{
     schemaVersion = 1
     verifiedUtc = [DateTime]::UtcNow.ToString('o')
@@ -280,6 +309,8 @@ return [pscustomobject]@{
     plugin = $plugin
     tests = $tests
     catalogSha256 = $catalogHash
+    inactiveExampleSha256 = $exampleHashes
+    lifecycleOptInDefault = $false
     liveHostVerified = $false
     gameplayImplemented = $false
 }

@@ -18,6 +18,12 @@
     "archiveSha256": "ad4534e92a3a244cf25d724d6a695d42ef8770e4b7a1f91ed53affcac171d0c4",
     "headerCheckoutLineEndings": "CRLF"
   },
+  "nativeHeaderDependencies": {
+    "exampleDependenciesRepository": "https://github.com/BFrizzleFoShizzle/KenshiLib_Examples_deps",
+    "exampleDependenciesCommit": "b566d74bf3d74629cc2fb632a97595b8202993f1",
+    "boostVersion": "1.60.0",
+    "usage": "Pinned GameWorld public declarations and their bundled Ogre/Boost headers only; no engine or Boost libraries linked"
+  },
   "files": [
     {
       "path": "windows-sdk-7.1\\Program Files(64)\\Microsoft Visual Studio 10.0\\VC\\bin\\amd64\\cl.exe",
@@ -92,6 +98,22 @@
       "sha256": "fb0a5308d9073ab7538d176c9ec13bf04354cf7daf94e4254e168ea5f695513b"
     },
     {
+      "path": "KenshiLib\\Source\\Debug.cpp",
+      "sha256": "b40d51aaf24076895ce7d3abb20c049b9f6266ea6af2b293be67c7ea030b6640"
+    },
+    {
+      "path": "KenshiLib\\Source\\core\\Functions.cpp",
+      "sha256": "47740eea3a5bded4bce8019c897aaf51396c28fc44b35a8b8086dea3903436c6"
+    },
+    {
+      "path": "KenshiLib\\Source\\kenshi\\functions\\GameWorld.inc",
+      "sha256": "f793fa371d5b63a6ffe3b653bcfa9d79d08c59169063a56e2a13101962465709"
+    },
+    {
+      "path": "KenshiLib\\Source\\kenshi\\symbols.asm",
+      "sha256": "3d678604e05b3f4c686570491cafa5472be8ca02a220fbf51c7af13083a42186"
+    },
+    {
       "path": "runtime-0.5.0\\KenshiLib.dll",
       "sha256": "5b6240622d06801dc39896e385efb834b8e1fe2fcdf86067d071ae7a04f6c83b"
     },
@@ -122,6 +144,16 @@
       "path": "windows-sdk-7.1\\Program Files\\Microsoft SDKs\\Windows\\v7.1\\Include",
       "fileCount": 1885,
       "sha256": "f7c058ed17f4dbfc599050e215b8931aa8a93bd4ed3537fc13c77a590efd454b"
+    },
+    {
+      "path": "KenshiLib\\Include",
+      "fileCount": 857,
+      "sha256": "3a85f230ff21338595d2c43d7450f3bc1e0985ca33787c0853e133000e1979f3"
+    },
+    {
+      "path": "KenshiLib_Examples_deps\\boost_1_60_0\\boost",
+      "fileCount": 11013,
+      "sha256": "b82ba3f8d9b9dea2a9574e583d2b91807af491285cda9fbcf2c2102db9567ca6"
     }
   ],
   "testRuntime": {

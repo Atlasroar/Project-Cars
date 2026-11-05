@@ -7,7 +7,8 @@ workbench and oil assets, audio, configuration, and rendering shaders.
 The separate [original source core](remake/README.md) adds a strict catalog
 parser, a standalone vehicle model with atomic part-count exchanges, typed
 fuel accounting and remake-only serialization, plus a VC100 x64
-development-only `ProjectCarsRemake.dll` catalog bootstrap.
+development-only `ProjectCarsRemake.dll` catalog bootstrap and an explicitly
+opt-in observational lifecycle probe, **disabled by default**.
 **No drivable gameplay is implemented in the remake**, and the legacy runtime
 and active plugin registration are unchanged.
 

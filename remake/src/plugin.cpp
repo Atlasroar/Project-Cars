@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 #include "catalog.h"
+#include "lifecycle.h"
 
 #include <Windows.h>
 #include <Debug.h>
@@ -12,6 +13,8 @@
 namespace
 {
     const char moduleMarker = 0;
+    volatile LONG startupClaimed = 0;
+    volatile LONG duplicateStartupReported = 0;
 
     std::runtime_error WindowsFailure(const char* operation, DWORD code)
     {
@@ -20,7 +23,7 @@ namespace
         return std::runtime_error(message.str());
     }
 
-    std::wstring ModuleCatalogPath()
+    std::wstring ModuleDirectory()
     {
         HMODULE module = NULL;
         if (!GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS |
@@ -41,7 +44,7 @@ namespace
                 const size_t separator = filename.find_last_of(L"\\");
                 if (separator == std::wstring::npos)
                     throw std::runtime_error("module filename has no directory");
-                return filename.substr(0, separator + 1) + L"vehicles.catalog";
+                return filename.substr(0, separator + 1);
             }
             if (buffer.size() == 32768)
                 throw std::runtime_error("module filename exceeds the Windows path limit");
@@ -63,8 +66,9 @@ namespace
     void Bootstrap()
     {
         DebugLog("ProjectCarsRemake FOUNDATION (development only): no drivable gameplay yet; "
-                 "no gameplay hooks or SDK initialization.");
-        const std::wstring path = ModuleCatalogPath();
+                 "no gameplay hooks or SDK initialization; lifecycle observation requires explicit opt-in.");
+        const std::wstring directory = ModuleDirectory();
+        const std::wstring path = directory + L"vehicles.catalog";
         const std::string source = Utf8(path);
         errno = 0;
         std::ifstream input(path.c_str(), std::ios::in | std::ios::binary);
@@ -86,6 +90,7 @@ namespace
                 << "no FCS lookup, vehicle creation or gameplay enabled.";
         const std::string summary = message.str();
         DebugLog(summary.c_str());
+        projectcars::StartNativeLifecycle(directory);
     }
 
     void ReportStartupFailure(const char* detail) throw()
@@ -110,6 +115,13 @@ namespace
 
 __declspec(dllexport) void startPlugin()
 {
+    if (InterlockedCompareExchange(&startupClaimed, 1, 0) != 0)
+    {
+        if (InterlockedCompareExchange(&duplicateStartupReported, 1, 0) == 0)
+            OutputDebugStringA("ProjectCarsRemake: duplicate startPlugin refused; "
+                               "no lifecycle retry, hot reload or replacement.\n");
+        return;
+    }
     try
     {
         Bootstrap();

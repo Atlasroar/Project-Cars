@@ -1,0 +1,4 @@
+# Inactive reference only. The build never removes the .example suffix.
+# A separately approved host test must explicitly change disabled to enabled.
+projectcars-remake-lifecycle 1
+observe disabled

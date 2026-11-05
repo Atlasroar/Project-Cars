@@ -9,6 +9,8 @@
 #include <sstream>
 
 void RunVehicleTests(const char* catalogPath);
+void RunLifecycleTests();
+void RunLifecycleMissingOriginalFixture();
 
 namespace
 {
@@ -410,6 +412,11 @@ namespace
 
 int main(int argc, char** argv)
 {
+    if (argc == 2 && std::string(argv[1]) == "--lifecycle-missing-original")
+    {
+        RunLifecycleMissingOriginalFixture();
+        return 1;
+    }
     if (argc != 2)
     {
         std::cerr << "Usage: CatalogTests.exe <required-real-vehicles.catalog>\n";
@@ -427,6 +434,7 @@ int main(int argc, char** argv)
         std::cout << "PASS: " << assertions << " assertions; " << rejectedInputs
                   << " malformed catalogs rejected; VC100 x64 Release\n";
         RunVehicleTests(argv[1]);
+        RunLifecycleTests();
         return 0;
     }
     catch (const std::exception& error)
