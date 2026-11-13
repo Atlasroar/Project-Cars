@@ -1,0 +1,47 @@
+﻿{
+    "schemaVersion":  1,
+    "baselineSha256":  "22502cfe85f2b06ab17b2936262f9665faf6603c66f448aaa715d53bd5235961",
+    "exampleDependenciesCommit":  "b566d74bf3d74629cc2fb632a97595b8202993f1",
+    "engineLibraries":  "SHA256 equals pinned repository Git LFS oid; existing external payloads, not pointer text",
+    "kenshiImportLibrary":  "Use official v0.5.0 import from baseline, NOT differing example KenshiLib.lib",
+    "files":  [
+                  {
+                      "path":  "KenshiLib_Examples_deps\\KenshiLib\\Libraries\\MyGUIEngine_x64.lib",
+                      "sha256":  "065e42b65440910fd5faf5bb7e52dfb1298ac977d6c18fe164cfd81634e2e83e"
+                  },
+                  {
+                      "path":  "KenshiLib_Examples_deps\\KenshiLib\\Libraries\\OgreMain_x64.lib",
+                      "sha256":  "97db9603acaa5ff19fa58f73bf7362e7298f99e96b36243563beba0334337928"
+                  },
+                  {
+                      "path":  "windows-sdk-7.1\\Program Files\\Microsoft SDKs\\Windows\\v7.1\\Lib\\x64\\winmm.lib",
+                      "sha256":  "acec27dbda786b1a3cb8179a2a15fead75f128ea0fa1fbd4b7e4e9f0acf5028f"
+                  }
+              ],
+    "helpers":  [
+                    {
+                        "path":  "remake\\build.ps1",
+                        "sha256":  "2c81a52fd84f33bc606f1a4c8fb120c07455e2a73905d0706a99268e28eab1ff",
+                        "functions":  [
+                                          "Assert-Hash",
+                                          "Assert-HeaderTree",
+                                          "Invoke-Native"
+                                      ]
+                    },
+                    {
+                        "path":  "remake\\verify-artifacts.ps1",
+                        "sha256":  "94602ee254cee3e711391f9f1715e7da165e8a79f64196e81ce561222b996d50",
+                        "functions":  [
+                                          "Range",
+                                          "U16",
+                                          "U32",
+                                          "U64",
+                                          "CString",
+                                          "GuidAt",
+                                          "RvaOffset",
+                                          "Read-PE",
+                                          "Read-PdbIdentity"
+                                      ]
+                    }
+                ]
+}

@@ -1,0 +1,490 @@
+﻿{
+    "schemaVersion":  1,
+    "repository":  "https://github.com/Teirdalin/Project-Cars",
+    "commit":  "740a9961c2ae47c75013fab5402189abca459354",
+    "tree":  "d4e874835a8617e1bf51ffa36706aad52b5ba439",
+    "version":  "0.8.19",
+    "license":  "GPL-3.0-only",
+    "files":  [
+                  {
+                      "path":  ".gitignore",
+                      "gitBlob":  "c003733428e3aa47147420af0e474a545229767a",
+                      "size":  9,
+                      "sha256":  "7b5753d29facfacb2c5adae4715a8dec8ffffe22c7540f63cb75826db2416221"
+                  },
+                  {
+                      "path":  "LICENSE",
+                      "gitBlob":  "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7",
+                      "size":  35149,
+                      "sha256":  "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+                  },
+                  {
+                      "path":  "README.md",
+                      "gitBlob":  "dae3689428a47e21ba5b48fa5a8226ee97b5cfdb",
+                      "size":  1083,
+                      "sha256":  "8758cd40bf853713cc4aa17bee68d7ea56ee0b1dc371cc55ef9f7720c11f8fd3"
+                  },
+                  {
+                      "path":  "plugin\\DebugItems.generated.h",
+                      "gitBlob":  "b9d3ab7829a228b52926bc66875410ab50a0299a",
+                      "size":  1461,
+                      "sha256":  "9b88198c73ca4eb102363ea3b13bf7246192c3553c74094093f76ce946387b3d"
+                  },
+                  {
+                      "path":  "plugin\\DriverPose.inl",
+                      "gitBlob":  "438ce9b08327f0afb7f45a6c2ddf97a2fe77719d",
+                      "size":  12251,
+                      "sha256":  "9263c49f5b719eeea47f02199a2f6cdbdace88a98b35b3bc8c06e1959974732e"
+                  },
+                  {
+                      "path":  "plugin\\DrivingRuntime.inl",
+                      "gitBlob":  "80e29d61a2c6b2f3909327f1c358ed1175f797e5",
+                      "size":  52225,
+                      "sha256":  "2e613a10be853a2c062493be80769bf64f3685f6d10ad40b39e68c1b44204745"
+                  },
+                  {
+                      "path":  "plugin\\FittingRuntime.cpp",
+                      "gitBlob":  "3334f387bda72ce111558d9d950e52fc4fa8c5e6",
+                      "size":  90667,
+                      "sha256":  "a92a03f28065f9a7be3c7dc9c7852210659a3ee403a4234b0a1da7a27d027d5c"
+                  },
+                  {
+                      "path":  "plugin\\FittingRuntime.h",
+                      "gitBlob":  "abba136b7d19fbfbd436d68fccef66b5a51d3502",
+                      "size":  2234,
+                      "sha256":  "95775ba346f369c46b833d8c48231438d904c0c053c9e8a91cdcd1d44e42bde8"
+                  },
+                  {
+                      "path":  "plugin\\NativeRoadNetwork.inl",
+                      "gitBlob":  "aba19585066b60498340dcbf92c21fcd77e59150",
+                      "size":  3043,
+                      "sha256":  "c45a9a5749459a56e5ce9d734c6a89e62064bf7dcc7d55206781a1640d39653f"
+                  },
+                  {
+                      "path":  "plugin\\NativeRuntime.cpp",
+                      "gitBlob":  "ce35ee2478892d68615abffd1f071fbadfc61d2a",
+                      "size":  44201,
+                      "sha256":  "5cb068b9d0fc8f960e1677ede0891d0d7b5cdf007d14c6bd9899b02feaab526e"
+                  },
+                  {
+                      "path":  "plugin\\NativeRuntime.h",
+                      "gitBlob":  "5e0add5fcc650780988571a7da3be65dfd2ba486",
+                      "size":  140,
+                      "sha256":  "dcb2c835e81c33bcd96fb75211ea299bc4d1def203be4194bfd9b86f4e879c8b"
+                  },
+                  {
+                      "path":  "plugin\\NativeVehiclePath.inl",
+                      "gitBlob":  "35bde2c02007dad5d671745f82fb3e78cd7daeab",
+                      "size":  6124,
+                      "sha256":  "b33499e6653f282e447e38c83d034e3f7d4e165f1715891730c85b5505e9321d"
+                  },
+                  {
+                      "path":  "plugin\\OilContent.generated.h",
+                      "gitBlob":  "39e78c0f10d1eb791b4a2a8dbde7397925a271dc",
+                      "size":  316,
+                      "sha256":  "334d2946a962f3ebb260bf7ba6a0fc7d7ded4c3636dc4421599a65e90d6f321b"
+                  },
+                  {
+                      "path":  "plugin\\OilProduction.cpp",
+                      "gitBlob":  "f286cbfb390e46536bb49a41f02d00675d388740",
+                      "size":  6163,
+                      "sha256":  "387d7bc13c8c8ad8efb7a8e1b3a51cad8bb60a9a3e3e793787d5761054a2abf5"
+                  },
+                  {
+                      "path":  "plugin\\OilProduction.h",
+                      "gitBlob":  "dfeecdc22f0e66f44388d38b812b30a23743d581",
+                      "size":  343,
+                      "sha256":  "ea88fe0abc256d145abe79175dc78b22a6b8dba847cbc1cc05b66f15e304df8b"
+                  },
+                  {
+                      "path":  "plugin\\ProjectCars.cpp",
+                      "gitBlob":  "215f1d7bee45bcb912af510764572b8a406e0e03",
+                      "size":  2628,
+                      "sha256":  "0c30317adb2438c862ee123ca6b063d4cc2723e04461b241ef33d662baff678c"
+                  },
+                  {
+                      "path":  "plugin\\TrackVisuals.inl",
+                      "gitBlob":  "c04642d8280c7c8c421abc7cff22af4f86fb2036",
+                      "size":  6291,
+                      "sha256":  "d9b842c7ec88c312cae9442f9d46b4b551e265546d52331ac0a8d6cc5f424508"
+                  },
+                  {
+                      "path":  "plugin\\VehicleAudio.h",
+                      "gitBlob":  "18e3df10446bf63133cfa42f77be150e30ac2aee",
+                      "size":  3950,
+                      "sha256":  "4b6c8cd3d9f022b40ec6b128fef2eefe439d4a2bd85e3e6e0d1a03c0920c07f9"
+                  },
+                  {
+                      "path":  "plugin\\VehicleBlood.inl",
+                      "gitBlob":  "139c3c33d34161a0685755397aef3263df15392d",
+                      "size":  4681,
+                      "sha256":  "deb4aa1a2d6129c2f9765e364e0bab84cfc08ff09bea336593dc371988d24255"
+                  },
+                  {
+                      "path":  "plugin\\VehicleBounds.inl",
+                      "gitBlob":  "920e52677184ebe3752d7816abc1519b21106d29",
+                      "size":  2251,
+                      "sha256":  "1935e9ac5bbe538f2b20a9b583ee8c219d3892ad6cbdc1478394a1b9e2bf430e"
+                  },
+                  {
+                      "path":  "plugin\\VehicleCamera.inl",
+                      "gitBlob":  "6aedc4f2af695700392cdef61491cac4145b69d0",
+                      "size":  10112,
+                      "sha256":  "fece55139ec67677420779488de15e65ea6bad1e9ec6b263494e03bc78d9d0ab"
+                  },
+                  {
+                      "path":  "plugin\\VehicleControls.inl",
+                      "gitBlob":  "58da2c312b48a7c12fadbfd8c405a229e11470d5",
+                      "size":  12080,
+                      "sha256":  "4d34c2582370561e4023ea97febd0c38741cab595f3abd73d8b941c50d254a7c"
+                  },
+                  {
+                      "path":  "plugin\\VehicleDamage.inl",
+                      "gitBlob":  "d9961a44cd42e20c12a5e816e107211a28dc8401",
+                      "size":  15113,
+                      "sha256":  "700e9f21043264052a98f25ccf5b7dc515cfc8440c4b23c38749149ad6b640ad"
+                  },
+                  {
+                      "path":  "plugin\\VehicleDebug.cpp",
+                      "gitBlob":  "1e19ba0c5b16cdc534e6f146ff5c64c9fe8580ca",
+                      "size":  6366,
+                      "sha256":  "df7cc206b32a795beaa92eeb2543bdb3066f978f9239b1c96a4361ee7462745c"
+                  },
+                  {
+                      "path":  "plugin\\VehicleDebug.h",
+                      "gitBlob":  "23c80998a87a282a8e14128d4e89ac5d4eb7ebb7",
+                      "size":  416,
+                      "sha256":  "8b8212b4ba1dbdb321ed25609191727ee92891aa912e40b00ad003e8693599cd"
+                  },
+                  {
+                      "path":  "plugin\\VehicleDebugRuntime.inl",
+                      "gitBlob":  "c8b3d495210ed9ec9c27d8a58bc1e8cf59a92a8b",
+                      "size":  7641,
+                      "sha256":  "ad3c7158500fb1b6e28743a3f281011fec973cfdbeb019b046dee0d6fb4e428e"
+                  },
+                  {
+                      "path":  "plugin\\VehicleDebugServices.inl",
+                      "gitBlob":  "f34b9fde37363450edcac155670e29ec44da3d56",
+                      "size":  5490,
+                      "sha256":  "d72224eee37dc85a2023e958331d83fd36545eaf1f193a0c0182a6cd85394c04"
+                  },
+                  {
+                      "path":  "plugin\\VehicleDents.inl",
+                      "gitBlob":  "98e23b4935af458af7858370821aa8f9fadfb13e",
+                      "size":  3540,
+                      "sha256":  "753b4e9d9de23175a580a4703b47408b065a9a8aa0cf0ee50d2061d735955cb5"
+                  },
+                  {
+                      "path":  "plugin\\VehicleFaultTrace.h",
+                      "gitBlob":  "70ee555d3484800b647e191831fa8eea8990f05f",
+                      "size":  4046,
+                      "sha256":  "354c76b8d9e196400450e5549cf4db6f45a94acd1cf1b99e57b698a7ded9acb3"
+                  },
+                  {
+                      "path":  "plugin\\VehicleLights.inl",
+                      "gitBlob":  "6816446f0a92d632f0900efa3af35bbd7cf677cc",
+                      "size":  3137,
+                      "sha256":  "868a4a340002e705f46ae1c057eaa63d596a8461fd5c3d6a70a30e48a2a56a4a"
+                  },
+                  {
+                      "path":  "plugin\\VehicleOccupants.inl",
+                      "gitBlob":  "27298a6f21fa5fafe17a7efe4525cb0867db4b25",
+                      "size":  9226,
+                      "sha256":  "5fd142de859c623e34cb562538d91a24fa03abcb6d1f295487a75d33be3fef41"
+                  },
+                  {
+                      "path":  "plugin\\VehiclePhysicsBridge.h",
+                      "gitBlob":  "5de70afce99ba06657cc03d7b7fa0dbba710982b",
+                      "size":  11723,
+                      "sha256":  "0a699b30cfbdea74122980886f9c82d71e3f73f3ca300013ec2c246aad7b2af6"
+                  },
+                  {
+                      "path":  "plugin\\VehicleRecovery.inl",
+                      "gitBlob":  "44d54e3ee889f7cce4a90d11dd79b606a2b5b7e5",
+                      "size":  11578,
+                      "sha256":  "2455cb61340036a17984b1133ab19ca641e85d1db6ced3abdfaced5a45ea9d9f"
+                  },
+                  {
+                      "path":  "plugin\\VehicleRecoveryUI.inl",
+                      "gitBlob":  "409a2fb37e9b2dd49c57dec7996d76d2e5d07fe1",
+                      "size":  2389,
+                      "sha256":  "5487ce97ab859d90c7b263d6b9786915a8099be6a8966df58958cd7ae02f255d"
+                  },
+                  {
+                      "path":  "plugin\\VehicleTrails.inl",
+                      "gitBlob":  "e0bbec29d0deee2c934c06e19b65cf056eb6968e",
+                      "size":  9529,
+                      "sha256":  "294c30d82b695c20215e9c07728f77b7e2435bf1404749cc1a8122ae2ba9125a"
+                  },
+                  {
+                      "path":  "plugin\\VehicleTurret.inl",
+                      "gitBlob":  "f8f5ae51b62de53c4516b3f3d48dd28701258182",
+                      "size":  11695,
+                      "sha256":  "754728d7fa8b6bc528f6638d19d1e95af9f9a8f2939565e47f1c3f43df1ff469"
+                  },
+                  {
+                      "path":  "plugin\\VehicleWorkshop.cpp",
+                      "gitBlob":  "7c9f130de56b088f16ae9b1705604b41e747a622",
+                      "size":  22254,
+                      "sha256":  "3958791ef1e30a7e1a6bc09de4eed89460d1c273ba09d1b6df89e6a35687aa13"
+                  },
+                  {
+                      "path":  "plugin\\VehicleWorkshop.h",
+                      "gitBlob":  "a6a55f4fd896e7d00e2b62486f3d43a7ee82cb80",
+                      "size":  453,
+                      "sha256":  "d2593c6640bac1c91b5a9dbc529608555f0f8611649abb17762ddd1e05a4bafa"
+                  },
+                  {
+                      "path":  "plugin\\compat\\HandleIdentity.h",
+                      "gitBlob":  "d04c88da5d71ac924d7738422d03ce6928089fe9",
+                      "size":  450,
+                      "sha256":  "d07444a543aa519a9549172cf39abb8306accc96e35c0f336a15249cf18d1123"
+                  },
+                  {
+                      "path":  "plugin\\compat\\HavokCharacter.h",
+                      "gitBlob":  "d0eb75a5915533ea7c5bf8fb6368f45c85bcbe58",
+                      "size":  7094,
+                      "sha256":  "7b4a4bef492bfa61478587a3b48de75bf9e870c9fa7647751ba3ac99ebd196c5"
+                  },
+                  {
+                      "path":  "plugin\\compat\\NativeQueryBuffer.h",
+                      "gitBlob":  "7ba78cb5e6b31c4bc77aab11e9d38b9945955577",
+                      "size":  705,
+                      "sha256":  "1ab8dada8626f2cc5c743ee14d4cfa0745a88ba72b9ecc36214b57c111e79166"
+                  },
+                  {
+                      "path":  "plugin\\compat\\NativeRoadSnapshot.h",
+                      "gitBlob":  "fbbce8f7150a629d070cee84c3b30f4dd1e8aa12",
+                      "size":  1542,
+                      "sha256":  "06ed3a456f91e7720c41d997b3ef6c62cbe88cb42a7454b2e4a8f77708f31779"
+                  },
+                  {
+                      "path":  "plugin\\compat\\NavMesh.h",
+                      "gitBlob":  "81ebf34adf8ac2f8c55d615a9419a33eca13a60a",
+                      "size":  14257,
+                      "sha256":  "60d7ea09a2ab625c6a1fcf827b15e9212686a685a0f472ddefe28416fefc325e"
+                  },
+                  {
+                      "path":  "plugin\\compat\\README.md",
+                      "gitBlob":  "662ab4bc3cca9973656b940e55516ffa6ffff17b",
+                      "size":  651,
+                      "sha256":  "5ea5b1799aed09a56f6c18ae2b2200763a77fdad72dcdfb251817464fc0df45b"
+                  },
+                  {
+                      "path":  "src\\Catalog.cpp",
+                      "gitBlob":  "7a4ecba113a77ef09d3261fd58c82a3bddbd2f17",
+                      "size":  9143,
+                      "sha256":  "b9e1a8621eabed71330c343ac39bb5e9535f42681e2fe676b97974ca9a2294c5"
+                  },
+                  {
+                      "path":  "src\\DebugPlacement.h",
+                      "gitBlob":  "fff45ab99a6c29cdcbc713ba1fa8a66ce079d79c",
+                      "size":  589,
+                      "sha256":  "710cc7dc7341942db189989a4087b8ef55da301555051eb72f118813053ac6cc"
+                  },
+                  {
+                      "path":  "src\\FittingQueue.h",
+                      "gitBlob":  "05e6efb4aa0019ce33cd08591bce6fd0950cde1f",
+                      "size":  3187,
+                      "sha256":  "9e01a4548ac80196fd431f73a72715f07e39b380a76dc4bf607c9821a5925b42"
+                  },
+                  {
+                      "path":  "src\\MotorcycleVisuals.generated.h",
+                      "gitBlob":  "deb86f2d7a703da0872969ff8069a13a02dd2aef",
+                      "size":  2183,
+                      "sha256":  "ac5839617d16aef3397a6d65d0fe6997c98cc7400a5ff1e5cfc68e5f856cebdd"
+                  },
+                  {
+                      "path":  "src\\NativePolicy.h",
+                      "gitBlob":  "43820f92027e45c771696afa8bf079ba754bc405",
+                      "size":  1375,
+                      "sha256":  "18fcdbcee8890c87fda2d53f94f721b4ab592729ac2e5e7c95aacf009864eefc"
+                  },
+                  {
+                      "path":  "src\\OilDeposits.h",
+                      "gitBlob":  "d545672ad4e56cdce9fbdd9471ebc7feef37ef9d",
+                      "size":  1859,
+                      "sha256":  "4ac98db73538feb23ab610d3d62f28b18d1b87d69effb6954807f7a4cb8a0563"
+                  },
+                  {
+                      "path":  "src\\Persistence.cpp",
+                      "gitBlob":  "e2fd36b42938de3015e47fcb164968cfafcab780",
+                      "size":  3577,
+                      "sha256":  "5295d910683b3b5435e243a5fcc3b1742b700c3f99aeb78d18840b8e2caf3869"
+                  },
+                  {
+                      "path":  "src\\RoadNetwork.h",
+                      "gitBlob":  "64d3ed7a7ca1c123f32de183c3bee832cbc58009",
+                      "size":  11123,
+                      "sha256":  "948e19a129f6e360c82a94a7cf248d57e7f808e26cef6ea291bfc6efcc8f90b4"
+                  },
+                  {
+                      "path":  "src\\ScopedQueryGroups.h",
+                      "gitBlob":  "459446b65634cc9a0b50533589543bfdd3f029c1",
+                      "size":  2020,
+                      "sha256":  "8fa694f1618b3bf3a78b0a6d96c280e5510ca79e6e189e4941f6c73cb370c1e1"
+                  },
+                  {
+                      "path":  "src\\TrackMotion.h",
+                      "gitBlob":  "ec40cb5283c2624b11fdcdd4499e329343725a53",
+                      "size":  4281,
+                      "sha256":  "836a25038040d8337105c231c68c62a424b0e5920712dc97e95450b66d94f677"
+                  },
+                  {
+                      "path":  "src\\TreadBlood.h",
+                      "gitBlob":  "0c8ccfc3f95fe6fbb3e756fcd3ae031fce69fcb4",
+                      "size":  2826,
+                      "sha256":  "13d119ded45f3ef75b680c24c7d15187157d9d1d63497af35408586af47fdc93"
+                  },
+                  {
+                      "path":  "src\\Vehicle.cpp",
+                      "gitBlob":  "a24eb824f2c28631a95a8ba778a770423fb34f51",
+                      "size":  12471,
+                      "sha256":  "7cfdd99b8c54f286a9b076b1a5a19e01317ce5ce25a250817295d98f40430a65"
+                  },
+                  {
+                      "path":  "src\\Vehicle.h",
+                      "gitBlob":  "79ac0c7f312bef9702b60436a446c4e211288ee6",
+                      "size":  7214,
+                      "sha256":  "fc047853f4f5432f84d3f5540b420346cde5681f1cb96b1bef623f174a29b1b4"
+                  },
+                  {
+                      "path":  "src\\VehicleBounds.h",
+                      "gitBlob":  "a589c01410b6186a5c4cab9b332858ab8083e652",
+                      "size":  1796,
+                      "sha256":  "d6d3793ae671666074e41ed1a6e3da558440064d0a620fd9c4cfadbc4b0f5ab7"
+                  },
+                  {
+                      "path":  "src\\VehicleCamera.h",
+                      "gitBlob":  "ff0908f058954faac85fd2209c2140df3939caff",
+                      "size":  4065,
+                      "sha256":  "b9cfbc76bb28aed6232d9c8dc6d9859c4649cdb23bb9b94e6f04b510f703fd7a"
+                  },
+                  {
+                      "path":  "src\\VehicleCollisionPose.h",
+                      "gitBlob":  "2f2aef3e0d3d1d8a19ddf07174b0d994d1b625f2",
+                      "size":  2375,
+                      "sha256":  "d5d1accbcb9919fa423024257a6a002748e9c629ac2216cde1640046734dd503"
+                  },
+                  {
+                      "path":  "src\\VehicleControls.h",
+                      "gitBlob":  "4dc65ab48f94cc135f08c5770dba1dc6bce7c57a",
+                      "size":  2954,
+                      "sha256":  "2713d35dafbde83b20eec2283ce023afa4a6ca7e096647848d0e78081d914a93"
+                  },
+                  {
+                      "path":  "src\\VehicleDamage.h",
+                      "gitBlob":  "fa5facc69213aaf6610d53fb44a1b6a5171d205f",
+                      "size":  1923,
+                      "sha256":  "f44c99bcc2c5506c0040f592101aa8c5f7845287432f35d82ba45ccf970001d0"
+                  },
+                  {
+                      "path":  "src\\VehicleDebugModel.h",
+                      "gitBlob":  "2c8f4f4697c0c10c4ec630d85fc140ee45184e25",
+                      "size":  2055,
+                      "sha256":  "e5b064b04a4c601f22a19d0faf45cb81b76dce8e84d99fd99ec88663ea611b17"
+                  },
+                  {
+                      "path":  "src\\VehicleDents.h",
+                      "gitBlob":  "f1e872d7a10ac8a16887bb6d61460f221c41925c",
+                      "size":  1908,
+                      "sha256":  "a33565cabd2438eae8c5f1a8dacfb4fd6bba3bad1a75096c2ab8da840be89ab7"
+                  },
+                  {
+                      "path":  "src\\VehicleDynamics.h",
+                      "gitBlob":  "0b6fb64f5467e63820ee20aab09597b76037549d",
+                      "size":  47123,
+                      "sha256":  "49d9c9f8ca2aeba5e81ab8c29a8706f644138768106ea41141281e638c41665e"
+                  },
+                  {
+                      "path":  "src\\VehicleInteraction.h",
+                      "gitBlob":  "7b8bf00e5f10b08a4fa3a5747f3e696cab5a0267",
+                      "size":  5593,
+                      "sha256":  "421c34eb2e1a29bf9279a7f94d971dc2020fedfe78240c967b24139b7b1931f6"
+                  },
+                  {
+                      "path":  "src\\VehiclePicking.generated.h",
+                      "gitBlob":  "6bcaaa742bc1d8898041d1f8e09de6f21b4a6662",
+                      "size":  44956,
+                      "sha256":  "e61c8e67d6884735d70f88eb3a0fc4d6f2cc93aca4fb3ae58a053550155f265e"
+                  },
+                  {
+                      "path":  "src\\VehicleQueries.h",
+                      "gitBlob":  "84a205194ff84548bea1b1a7dabe97268e8d1e2d",
+                      "size":  1659,
+                      "sha256":  "3afaae4bc0d03446f5014234f831a2bdcc8ff7cdd57add823c001d88faa393d3"
+                  },
+                  {
+                      "path":  "src\\VehicleRig.h",
+                      "gitBlob":  "e1c6aba9b335592e5872b313fbe8b3dac1009a5d",
+                      "size":  4277,
+                      "sha256":  "7f10f15c9e68f03bbebca641522a1028eaf3fa5a463d9a8b34b6f4c585ef3417"
+                  },
+                  {
+                      "path":  "src\\VehicleRoad.h",
+                      "gitBlob":  "ed3c8d418ebba9cba65dd07ac096636e4a50fee1",
+                      "size":  4274,
+                      "sha256":  "bf82ad9c9851d4bd3175dcc4474801f16bcf2574ac04fac1cac3ad05fc039c23"
+                  },
+                  {
+                      "path":  "src\\VehicleService.h",
+                      "gitBlob":  "227e7863fe3228fc919c3b9bd9a62052534c136d",
+                      "size":  295,
+                      "sha256":  "ba52d3267669aef55dc41917623f86feeea11fc53d7cb8c6c819d80c5e99dbbe"
+                  },
+                  {
+                      "path":  "src\\VehicleSkills.h",
+                      "gitBlob":  "3c9323c26a1559c90a21452ed88c09d39d766a79",
+                      "size":  1603,
+                      "sha256":  "f74ee66001e90bb0719079ad8f2601a393b6f4d96827e0aa2124457052a4848a"
+                  },
+                  {
+                      "path":  "src\\VehicleSound.h",
+                      "gitBlob":  "f4a23b1d89c38f63d02694b744665a4f5f693136",
+                      "size":  7715,
+                      "sha256":  "0a2313a1ae8155fc9034471d0df6867adef38aa3ceabdc19427a25dbfb9d7de6"
+                  },
+                  {
+                      "path":  "src\\VehicleTrails.h",
+                      "gitBlob":  "480d098a31cc380b7dc4d594eaee9505cb9009fb",
+                      "size":  3759,
+                      "sha256":  "63368fbfd0cddf24c36cc4d55811eb3a0c9203aafff21945132a2abd408f6caf"
+                  },
+                  {
+                      "path":  "src\\VehicleTurretData.generated.h",
+                      "gitBlob":  "eef4baa555ebd9a7f6e203569e3a35259f33a5b3",
+                      "size":  165,
+                      "sha256":  "0b3d0085fd5a334216bd9fd43738581574deda53835fc74fb1f6d2078720695e"
+                  },
+                  {
+                      "path":  "src\\WorkshopData.generated.h",
+                      "gitBlob":  "3b489342eb9b12367b128cecd8722e639c51fed6",
+                      "size":  24717,
+                      "sha256":  "7bfe07196c1255e26c514ca955b32e19ac635bf991db1d442a13914fcb2ed85b"
+                  },
+                  {
+                      "path":  "src\\WorkshopModel.cpp",
+                      "gitBlob":  "f7276fb238f5c49dc907fc8274fda6a41e21d9a2",
+                      "size":  1948,
+                      "sha256":  "aaf69bec09b9e6b1b1a87faecfeccd72943fa0ecc9ec3d36caf1c2c6ba47ead4"
+                  },
+                  {
+                      "path":  "src\\WorkshopModel.h",
+                      "gitBlob":  "071fe336604a6a95c905d3d357b8618c72af4e1b",
+                      "size":  3874,
+                      "sha256":  "abe16d2325d915d43857da46cf85e0cef7f5685387e6db512da0fd08df55391e"
+                  },
+                  {
+                      "path":  "src\\XSmallVisuals.generated.h",
+                      "gitBlob":  "e96f454f33e92b914587c0cd105cac2d62cb8104",
+                      "size":  2699,
+                      "sha256":  "2d23a9d61884e84c03f861e7a0f41e494677291bbcff75f8423a013ffce6b7e9"
+                  },
+                  {
+                      "path":  "tools\\build.ps1",
+                      "gitBlob":  "82a921a31d1a2d2387dda98080fc0ab8f66a52b9",
+                      "size":  3971,
+                      "sha256":  "fd8459c8153fc5ea7eca2ab812318aa40875959112af7f18ac9274cd683cc4ee"
+                  }
+              ]
+}
