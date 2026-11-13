@@ -1,7 +1,8 @@
 # SPDX-License-Identifier: GPL-3.0-only
 [CmdletBinding()]
 param(
-    [string]$OutputDirectory = (Join-Path (Split-Path -Parent $PSScriptRoot) 'out\remake')
+    [ValidateNotNullOrEmpty()]
+    [string]$OutputDirectory
 )
 
 Set-StrictMode -Version Latest
@@ -281,6 +282,10 @@ function Verify-Pair([string]$ImageName, [bool]$Dll) {
     return $result
 }
 
+$repo = Split-Path -Parent $PSScriptRoot
+if (-not $PSBoundParameters.ContainsKey('OutputDirectory')) {
+    $OutputDirectory = Join-Path $repo 'out\remake'
+}
 $OutputDirectory = [IO.Path]::GetFullPath($OutputDirectory)
 foreach ($activeName in @('RE_Kenshi.json', 'ProjectCarsRemake.lifecycle.cfg')) {
     if (Test-Path -LiteralPath (Join-Path $OutputDirectory $activeName)) {
@@ -289,7 +294,6 @@ foreach ($activeName in @('RE_Kenshi.json', 'ProjectCarsRemake.lifecycle.cfg')) 
 }
 $plugin = Verify-Pair 'ProjectCarsRemake.dll' $true
 $tests = Verify-Pair 'CatalogTests.exe' $false
-$repo = Split-Path -Parent $PSScriptRoot
 $catalogHash = (Get-FileHash -LiteralPath "$repo\vehicles.catalog" -Algorithm SHA256).Hash.ToLowerInvariant()
 $stagedHash = (Get-FileHash -LiteralPath "$OutputDirectory\vehicles.catalog" -Algorithm SHA256).Hash.ToLowerInvariant()
 if ($catalogHash -ne $stagedHash) { throw 'Staged catalog does not match the canonical catalog.' }

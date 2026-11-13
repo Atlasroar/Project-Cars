@@ -70,7 +70,7 @@ body:
     id: logs
     attributes:
       label: Supporting logs or files
-      description: Optional; drag and drop relevant .log, .txt, .json, or .zip files, or paste a short excerpt. Redact private information before attaching.
+      description: Optional; drag and drop relevant .log, .txt, .json, or .zip files, or paste a short excerpt. Kenshi's own kenshi.log and kenshi_info.log are in its game installation folder; preserve the relevant run before relaunching. Redact private information before attaching.
   - type: textarea
     id: media
     attributes:
