@@ -1,10 +1,20 @@
-# Project Cars
+# Project Cars (Archived)
+
+**This repository is retained as a historical archive.** The original mod
+author, Teirdalin, has returned to the project; follow the author's project
+for ongoing development and current releases:
+
+- **GitHub:** [Teirdalin/Project-Cars](https://github.com/Teirdalin/Project-Cars)
+- **Steam Workshop:** [Project Cars](https://steamcommunity.com/sharedfiles/filedetails/?id=3801477897)
+
+The code, build work and wiki here are preserved for reference, not maintained
+as an alternative release. Historical validation limits below still apply.
 
 Project Cars is a native-plugin vehicle mod for **Kenshi x64**. The uploaded
 package contains the FCS mod, runtime DLL, debug symbols, modular vehicle assets,
 workbench and oil assets, audio, configuration, and rendering shaders.
 
-Development now starts from the [recovered original 0.8.19 source](original/README.md),
+This archive includes the [recovered original 0.8.19 source](original/README.md),
 preserved at an exact upstream revision with an isolated VC100 build. This is
 not a proven reproduction of the packaged 0.8.16 DLL or an approved live-game
 release. The existing deployment files remain unchanged.
@@ -36,7 +46,11 @@ the package's features and code evidence:
 
 ## Reporting issues
 
-Use the [issue forms](https://github.com/Atlasroar/Project-Cars/issues/new/choose)
+For current mod support and development, follow
+[Teirdalin's repository](https://github.com/Teirdalin/Project-Cars) and the
+[Steam Workshop page](https://steamcommunity.com/sharedfiles/filedetails/?id=3801477897).
+The retained [issue forms](https://github.com/Atlasroar/Project-Cars/issues/new/choose)
+document the historical reporting workflow
 for problems, compatibility/build help, feature requests, documentation fixes,
 or asset/licensing clarifications. Both forms accept logs, screenshots, and
 videos in their attachment fields; GitHub controls file types and size limits.
