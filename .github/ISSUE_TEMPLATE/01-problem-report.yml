@@ -123,7 +123,7 @@ body:
     id: logs
     attributes:
       label: Logs and diagnostic files
-      description: Drag and drop relevant .log, .txt, .json, or .zip files here, or paste a short excerpt. Include Project Cars / RE_Kenshi logs, debugger traces, build output, or artifact-report.json when relevant. Redact private information first.
+      description: Drag and drop relevant .log, .txt, .json, or .zip files here, or paste a short excerpt. Kenshi writes kenshi.log and kenshi_info.log in its game installation folder; preserve the affected run before relaunching. Include these, Project Cars / RE_Kenshi logs, debugger traces, build output, or artifact-report.json when relevant. Redact private information first.
       placeholder: Attach files here, or explain if no logs are available.
   - type: textarea
     id: media

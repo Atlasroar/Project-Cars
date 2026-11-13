@@ -1,5 +1,10 @@
 # Original source core
 
+**Historical independent remake:** development now starts from the separately
+preserved [recovered original 0.8.19 source](../original/README.md).
+This tree and its tests remain available; its incomplete host acceptance gate
+has not been waived or represented as acceptance of the recovered runtime.
+
 **Development only: no drivable gameplay yet.** This is new, original
 GPL-3.0-only C++ source, not recovery of the unavailable source for the legacy
 `ProjectCars.dll` 0.8.16. It implements a catalog model/parser, a standalone
@@ -21,6 +26,12 @@ Scout and hauler are catalog declarations, not verified
 native buildings or finished deployment assets. The parser preserves the
 existing `10-Project Cars.mod` binding as an exact string; it does not establish
 that a live FCS object exists.
+
+**Upstream safety authority:** RE_Kenshi and KenshiLib's documented safety
+and API contracts for the supported versions govern this plugin. A proposed
+departure requires explicit user approval after upstream maintainer/expert
+consultation. Passing tests does not authorize bypassing those contracts;
+unknown contracts must be surfaced rather than guessed.
 
 ## Build and check
 
@@ -496,6 +507,12 @@ the first hook attempt. The DLL is process-pinned and its heap-owned callback
 context published before any `AddHook` can enable a detour. It is deliberately
 never destroyed or replaced during the process.
 
+Disabled startup also emits one bounded installation diagnostic:
+`state=1` (`DISABLED`) and attempted/success/original masks `0/0/0`.
+`Install` returns before SDK target preparation or hook calls in this state.
+The `LIFECYCLE` prefix alone does not mean hooks are active; distinguish this
+startup summary from actual callback/installation state and masks.
+
 The pinned public `AddHook(void*, void*, void**)` is immediate
 (`Include\core\Functions.h:26-34`). Its implementation
 (`Source\core\Functions.cpp:84-100`) calls `MH_CreateHookEx` with the original
@@ -580,7 +597,28 @@ per-frame log. SDK startup logging retains the established export-boundary
 exception reporting/fallback. Capture debugger output during any approved
 manual probe test; lack of captured callback output is not acceptance.
 
-### Real-host gate: preparation only, not executed
+### Game, loader and probe logs
+
+Kenshi has its own built-in logging. Its game installation folder contains
+`kenshi.log` and `kenshi_info.log`, independently of the RE_Kenshi/plugin logs.
+For the observed installation these are under
+`D:\SteamLibrary\steamapps\common\Kenshi`, even though the supported executable
+is launched from its `RE_Kenshi` subdirectory.
+
+Preserve the affected run's game logs alongside the loader log and debugger
+capture before relaunching; logs may be overwritten. The game logs provide
+resource, mod-loading and save/load context. The loader log establishes SDK
+initialization, plugin discovery and bootstrap reporting. Bounded lifecycle
+owner/epoch/failure diagnostics use `OutputDebugStringA` and require debugger
+capture; they are not guaranteed to appear in either game log. A game-log
+`Reset game` entry alone does not prove that the typed probe callback ran.
+
+Keep raw captures private and redact identifying paths or save information
+before uploading issue attachments. Existing game logging is not evidence that
+its logging API, or the SDK logger, is safe to call from every callback thread;
+this probe's callback logging policy remains unchanged.
+
+### Real-host gate: partial world observations captured, acceptance incomplete
 
 The host must initialize the exact matching KenshiLib **0.5.0** DLL and
 ordered Steam/GOG 1.0.65 RVA pack before normal active-mod `Plugins` discovery.
@@ -601,9 +639,68 @@ Installed `KenshiLib.dll` SHA256
 `5b6240622d06801dc39896e385efb834b8e1fe2fcdf86067d071ae7a04f6c83b`
 and both installed RVAs match the dependency pins. Installed `RE_Kenshi.dll`
 SHA256 `58900f1678e4eef407fb19d12527fd8c1d3dbc5bc09903c088dc52a9134a04ee`
-has **unproven exact source provenance**. This evidence was not a runtime
-test and does not establish which process a launch route selects, loader
-initialization order, callback scheduling or multihook coexistence.
+has **unproven exact source provenance**. That earlier read-only evidence
+alone did not establish the selected process or loader initialization order.
+
+On **2026-11-05**, a separately approved, user-launched main-menu control
+verified the actual supported Steam 1.0.65 process, matching loaded SDK 0.5.0
+DLL and developer DLL. The fresh log records SDK initialization and RVAs at
+0.002 seconds, normal post-load developer discovery at 5.328 seconds, the
+11-part/3-frame/32-slot/one-binding catalog at 5.330 seconds, and explicit
+`Lifecycle DISABLED` with no SDK resolution or probe hooks. Only the developer
+`.mod` was active and the legacy `ProjectCars.dll` was not loaded, but
+RE_Kenshi also preloaded `KenshiExtensionPlugin` / `kep-core 1.0.0`.
+The loader reported `Could not initialize UI` once before logging the
+supported main menu again; this is recorded, not an error-free-startup claim.
+The control establishes bootstrap/discovery behavior, not enabled hook ABI,
+callback scheduling, world lifecycle acceptance or shared-hook coexistence.
+
+After separate approval, matching artifacts and independent save/configuration
+backups, the enabled main-menu run also reached the supported menu.
+Process-scoped CDB output records `LIFECYCLE_ACTIVE`, no installation failure,
+and attempted/success/original masks `7/7/7`. All three typed trampolines were
+ready, but no world callback owner had yet been observed at installation.
+The first enabled capture was closed by the user. In the second approved run,
+the user created a disposable new game, saved it under a unique probe name,
+explicitly reloaded that save and reported that the world returned.
+New-game reset advanced epoch `1 -> 2` before the original at depth 1;
+the subsequent first observed tick ran at epoch 2/depth 0. Tick and reset
+owners were both thread `225736`. Reload reset advanced epoch `2 -> 3`
+before the original, with the same recorded owners. Kenshi's own
+`kenshi_info.log` independently records the new game, manual save and explicit
+reload. These are partial live tick/reset observations, not proof of arbitrary
+UI/mutation permission or complete lifecycle coverage. The bounded probe emits
+no per-epoch tick message, so the reload diagnostic alone does not prove
+post-reload identity reobservation.
+
+After the user reported game-menu quit, the original process was still paused
+in CDB on a first-chance `c0000005` access violation. The captured stack was
+in `combase`, through `CoUninitialize` and game audio termination. Host/system
+symbols were export-only and `.ecxr` failed; the absence of a remake frame on
+that stack establishes neither causality nor exoneration. After forwarding
+the exception with `gn` (not handled), the original process disappeared and CDB returned
+code 1. The actual host exit code is unknown; clean shutdown is not established.
+Raw game/loader logs, debugger captures and save/configuration audits remain
+private in the isolated test package. After verifying no executing Kenshi
+process, the isolated opt-in was returned to `observe disabled`.
+
+The earlier capture used `-g` with `-cf`: the command file was processed only
+when the first debugger prompt appeared at the access violation, rather than
+at the initial breakpoint. Subsequent controls omit initial/final breakpoint
+skip options, configure filters at the initial prompt and break on process
+exit to record the actual host exit code. An SDK-free Windows-process fixture
+verified that ordering and a target exit code of zero. At a host exception,
+capture evidence before explicitly forwarding it with `gn`; do not
+automatically consume or suppress a game failure. The corrected capture
+differs from the earlier run, so a single control cannot establish causality.
+
+No clear callback owner, nested/in-flight teardown, live queued ticket or
+shared-hook-chain acceptance was captured. Queue/invalidation counts remained
+zero. Loaded `kep-core` establishes plugin presence only, not shared-target
+coexistence. All 2,847 baseline non-autosave files remained byte-identical and
+the complete private backup reverified; the game replaced `autosave2` and
+updated the settings' Continue/autosave index. These game-managed changes were
+not blindly restored.
 
 Before phase 3B, the user must explicitly approve and conduct a controlled
 real-host observation test:
@@ -633,10 +730,15 @@ real-host observation test:
    process/runtime identities, initialization order, scenarios and evidence.
    A successful offline build or startup banner alone does not pass this gate.
 
-No game executable or real SDK DLL was loaded by the tests/build, no test
-plugin was installed, and no installed files, active mod lists or saves were
-changed. **Live startup/new/load/reset/clear and multi-plugin coexistence
-remain unverified.** A compatible target exists; runtime acceptance does not.
+The tests/build do not launch the game, load the real SDK, install the plugin,
+or change installed files, active mod lists or saves. Separately, the user
+prepared an isolated developer package and manually activated it for the
+disabled main-menu control, with the original mod list backed up and the
+legacy DLL/PDB/FCS/registration preserved. The separately approved enabled
+installation/menu control also passed, and disposable new/save/reload scenarios
+captured actual tick/reset owners and epoch transitions. **Clear, complete
+teardown/reobservation, clean shutdown and shared-hook coexistence remain
+unverified.** The full real-host gate has not passed.
 
 ## Remaining native work
 
@@ -646,4 +748,6 @@ later explicit approval and the controlled real-host test above**. Typed
 native handles/FCS adoption, workshop/live inventory/attachments,
 driving/fuel integration and playable deployment are subsequent units, not
 part of this one. Passengers, tracks, oil and combat remain unimplemented.
-No live-game startup or gameplay gate has passed.
+The disabled bootstrap and enabled installation/menu controls passed, with
+partial disposable-world tick/reset observations captured. No complete world
+lifecycle or gameplay gate has passed.

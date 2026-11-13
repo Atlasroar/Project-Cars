@@ -30,7 +30,7 @@
                     },
                     {
                         "path":  "remake\\verify-artifacts.ps1",
-                        "sha256":  "94602ee254cee3e711391f9f1715e7da165e8a79f64196e81ce561222b996d50",
+                        "sha256":  "68ad5829a56e522820204d0ef3b00f204fa47e1cdb6aa4344b01d9d806b5b987",
                         "functions":  [
                                           "Range",
                                           "U16",

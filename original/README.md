@@ -110,6 +110,11 @@ closed until reviewed and repinned. Their recorded file hashes reflect the
 existing Windows checkout bytes; retain those bytes when reproducing this
 foundation, rather than silently accepting a newline-converted helper.
 
+Integration includes the existing verifier default-path fix. All nine imported
+PE/PDB parser function definitions were compared with the previous version and
+are unchanged; only entry-point parameter/default handling differs. The
+whole-file verifier pin was deliberately updated for this integrated checkout.
+
 ## Observed static build evidence
 
 The command above completed with exit code **0** on November 13, 2026, emitting

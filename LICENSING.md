@@ -12,12 +12,14 @@ The full, unmodified license text is in [LICENSE](LICENSE). The license includes
 its warranty disclaimer. "Version 3 only" is intentional; this declaration does
 not add an "or any later version" grant.
 
-## Missing corresponding source
+## Packaged binary's corresponding source remains unestablished
 
-The imported runtime is a compiled native C++ DLL. This repository does not
-contain that runtime's C++ source, headers, build project, or the scripts and
-instructions needed to rebuild it. A PDB is not corresponding source, and the
-uploaded PDB's GUID does not match the current DLL.
+The imported runtime is a compiled native C++ DLL identified as 0.8.16.
+Recovered upstream 0.8.19 source, its full GPLv3 license and an isolated build
+are now preserved under `original`; see [original/README.md](original/README.md)
+for provenance and dependencies. This does not establish that this revision
+produced the imported binary. A PDB is not corresponding source, and the
+uploaded legacy PDB's GUID does not match the packaged DLL.
 
 GPLv3 has requirements for conveying object code and making its complete
 Corresponding Source available; see sections 1 and 6 of [LICENSE](LICENSE).
@@ -30,7 +32,14 @@ rights holders must resolve the applicable source-distribution requirements,
 including the source and build materials needed for the distributed build.
 Do not present this repository as a complete, reproducible GPL source release.
 
-## New original source core
+## Recovered source and independent remake
+
+The immutable recovered snapshot comes from Teirdalin/Project-Cars commit
+`740a9961c2ae47c75013fab5402189abca459354` under its explicit
+**GPL-3.0-only** declaration. Its upstream license and compatibility attribution
+are retained. The local build wrapper and source manifest do not relicense
+external engine/SDK/compiler dependencies or establish rights to omitted assets.
+The earlier 0.8.16 source publication is not a proven matching build either.
 
 The C++ catalog parser, standalone vehicle/fuel/serialization core,
 development-only bootstrap, tests, scripts and documentation under `remake`
